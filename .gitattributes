@@ -1,0 +1,56 @@
+# ===== 기본: 텍스트 파일은 Git이 자동 판별, 줄바꿈은 LF로 통일 =====
+* text=auto eol=lf
+
+# ===== Unity YAML 직렬화 파일 (Unity 6 기본값 Force Text) =====
+*.unity       text eol=lf
+*.prefab      text eol=lf
+*.asset       text eol=lf
+*.meta        text eol=lf
+*.mat         text eol=lf
+*.anim        text eol=lf
+*.controller  text eol=lf
+*.overrideController text eol=lf
+*.physicsMaterial2D  text eol=lf
+*.spriteatlas text eol=lf
+*.spriteatlasv2 text eol=lf
+*.inputactions text eol=lf
+*.cs          text eol=lf diff=csharp
+*.json        text eol=lf
+*.md          text eol=lf
+
+# ===== Git LFS: 바이너리 에셋 =====
+# 이미지 / 2D 원화
+*.png  filter=lfs diff=lfs merge=lfs -text
+*.jpg  filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.psd  filter=lfs diff=lfs merge=lfs -text
+*.psb  filter=lfs diff=lfs merge=lfs -text
+*.tga  filter=lfs diff=lfs merge=lfs -text
+*.tif  filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.gif  filter=lfs diff=lfs merge=lfs -text
+*.exr  filter=lfs diff=lfs merge=lfs -text
+
+# 오디오
+*.wav  filter=lfs diff=lfs merge=lfs -text
+*.mp3  filter=lfs diff=lfs merge=lfs -text
+*.ogg  filter=lfs diff=lfs merge=lfs -text
+*.aif  filter=lfs diff=lfs merge=lfs -text
+*.aiff filter=lfs diff=lfs merge=lfs -text
+
+# 폰트
+*.ttf  filter=lfs diff=lfs merge=lfs -text
+*.otf  filter=lfs diff=lfs merge=lfs -text
+
+# 영상
+*.mp4  filter=lfs diff=lfs merge=lfs -text
+*.mov  filter=lfs diff=lfs merge=lfs -text
+*.webm filter=lfs diff=lfs merge=lfs -text
+
+# 3D (혹시 사용할 경우)
+*.fbx  filter=lfs diff=lfs merge=lfs -text
+
+# 기타 바이너리
+*.zip  filter=lfs diff=lfs merge=lfs -text
+*.dll  filter=lfs diff=lfs merge=lfs -text
+*.pdf  filter=lfs diff=lfs merge=lfs -text

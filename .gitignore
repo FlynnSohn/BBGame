@@ -107,3 +107,19 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# ===== macOS =====
+.DS_Store
+
+# ===== Unity Pipeline (Unity CLI 연동) =====
+# 에디터/플레이어가 쓰는 포트·토큰 정보 파일. 토큰이 들어 있으므로 절대 커밋하지 않음
+.unity-pipeline*
+# 빌드 중에만 생성되는 임시 에셋(절대경로 포함). 빌드가 중간에 실패하면 남을 수 있음
+/[Aa]ssets/Settings/Pipeline/Resources/RuntimePipeline*
+
+# ===== Claude Code =====
+CLAUDE.md
+.claude/
+
+# ===문서 업로드하지 않음 ===
+/Docs/
