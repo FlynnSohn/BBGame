@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Card
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: b5014a27d4e054522a1a66867e29a805, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: fca713fdb67364a8b9438f86ccc60d03, type: 2}
+  - {fileID: 11400000, guid: d53408e068e5e44b9b8a253b50167fa3, type: 2}
+  - {fileID: 11400000, guid: 8d1319c69a05b46dfb2215e8fd2166c4, type: 2}
+  - {fileID: 11400000, guid: 16742bded87a04d0e9b6a7eb3bb32d08, type: 2}
+  - {fileID: 11400000, guid: 9ca93a57bfabc44aea9da94e1b7941dc, type: 2}
+  - {fileID: 11400000, guid: 49ac16eb66c4a4aeda0de973acca1a42, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

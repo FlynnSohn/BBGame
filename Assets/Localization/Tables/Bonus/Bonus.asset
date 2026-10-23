@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Bonus
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: 9c3e227708def4e49bb980a69c887240, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: dec1ba7090dfd4ea08b471e097507a91, type: 2}
+  - {fileID: 11400000, guid: 16ec7371e92b54ab4b55be0dcb4621ae, type: 2}
+  - {fileID: 11400000, guid: c812d599eb2254a349d164fd0bbcfc31, type: 2}
+  - {fileID: 11400000, guid: 62e8babee102d48efa236a0bbba26d8a, type: 2}
+  - {fileID: 11400000, guid: bb165ad44c5664e829277209a141c4b8, type: 2}
+  - {fileID: 11400000, guid: eceb26f703d364358b204bbd17ff43c7, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

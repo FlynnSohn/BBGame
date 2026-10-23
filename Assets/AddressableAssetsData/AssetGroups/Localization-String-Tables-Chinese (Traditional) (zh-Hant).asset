@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Chinese (Traditional) (zh-Hant)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-String-Tables-Chinese (Traditional) (zh-Hant)
+  m_GUID: 5659ec709a39f4233b5e0f4ef3042054
+  m_SerializeEntries:
+  - m_GUID: 2b8f5f42916504c069a2ea5f39c4c316
+    m_Address: Batter_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49ac16eb66c4a4aeda0de973acca1a42
+    m_Address: Card_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5004afc34e87c4c2ea2ff0ed00a7c18e
+    m_Address: Reveal_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e06466a3e0e14ddebd5bd2a1afbab4c
+    m_Address: System_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0edb854a9ee0418aafcdb16c23393c4
+    m_Address: Weather_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b72eb49a32dc345dcae620696ffee1de
+    m_Address: Clue_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce143a9c33e0346799b54e5d7d04c977
+    m_Address: UI_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eceb26f703d364358b204bbd17ff43c7
+    m_Address: Bonus_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f159bcd447ac945cf8e67dc6621de019
+    m_Address: Narration_zh-Hant
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hant
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 46ce128ba18314433a317d19ba2e326b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 965df46443dd34605aad424c6ab348cf, type: 2}
+    - {fileID: 11400000, guid: 2561ca4600bec45e99b1c0726ba6dae6, type: 2}
+    - {fileID: 11400000, guid: cca41e4f3db1f42d290f164d312a76ff, type: 2}

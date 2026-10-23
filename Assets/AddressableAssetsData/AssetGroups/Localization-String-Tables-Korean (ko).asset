@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Korean (ko)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-String-Tables-Korean (ko)
+  m_GUID: 88578f36c874145cc90091505a235b0b
+  m_SerializeEntries:
+  - m_GUID: 0562bb80c38854b12918623a3b05dfca
+    m_Address: Weather_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 23663faa763774281a972f69bf61747b
+    m_Address: Clue_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50aa1bdc6f43a44a0be0ae9b952a6752
+    m_Address: System_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6521acc29ec5744e8937fc8e6f6e546b
+    m_Address: Batter_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82da69806b6be4079a1462fc047b1126
+    m_Address: Narration_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8801d5297060d447b9a4181a4a2eca6c
+    m_Address: Reveal_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dec1ba7090dfd4ea08b471e097507a91
+    m_Address: Bonus_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ecec41e2ba4e74667b518ec138bd1ce8
+    m_Address: UI_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fca713fdb67364a8b9438f86ccc60d03
+    m_Address: Card_ko
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 46ce128ba18314433a317d19ba2e326b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9cd754664468e450fa24e6ac9a974418, type: 2}
+    - {fileID: 11400000, guid: da57d0ff626bb4c3f9f759884763afdd, type: 2}
+    - {fileID: 11400000, guid: 0306c4a2e12314feda54ccaaeee04d4c, type: 2}

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-Assets-Shared
+  m_GUID: aec3b61ae4ae84be9b7a9239bd540bbb
+  m_SerializeEntries:
+  - m_GUID: 4fc8218f2a98c4df593f10f0757090b0
+    m_Address: Assets/Localization/Tables/Narration/Narration Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b212e2c398da4c6990300f063be924c
+    m_Address: Assets/Localization/Tables/Batter/Batter Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82bd50ce9959041e4aea9ab1164e4430
+    m_Address: Assets/Localization/Tables/UI/UI Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9c3e227708def4e49bb980a69c887240
+    m_Address: Assets/Localization/Tables/Bonus/Bonus Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b47b49992487f48f7a9f428560e80001
+    m_Address: Assets/Localization/Tables/System/System Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b5014a27d4e054522a1a66867e29a805
+    m_Address: Assets/Localization/Tables/Card/Card Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cee0b4abb060a44edb4f64914e8484cf
+    m_Address: Assets/Localization/Tables/Reveal/Reveal Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6a80c63ebd424b888fedc2fdbfcd808
+    m_Address: Assets/Localization/Tables/Clue/Clue Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2e91c06b893b48a185e7b7c9ff76538
+    m_Address: Assets/Localization/Tables/Weather/Weather Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 46ce128ba18314433a317d19ba2e326b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: dd3a28f53c6e5453eb88a30e26f5b6e4, type: 2}
+    - {fileID: 11400000, guid: 9383184add8784cdb9816f813f6fcac9, type: 2}
+    - {fileID: 11400000, guid: cf21c6d6677214572a47dbb1d1dca7c9, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Narration Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Narration
+  m_TableCollectionNameGuidString: 4fc8218f2a98c4df593f10f0757090b0
+  m_Entries: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7751032784689561844
+  references:
+    version: 2
+    RefIds:
+    - rid: 7751032784689561844
+      type: {class: SequentialIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_NextAvailableId: 9930001

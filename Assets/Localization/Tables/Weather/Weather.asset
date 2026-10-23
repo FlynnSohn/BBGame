@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Weather
+  m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
+  m_SharedTableData: {fileID: 11400000, guid: f2e91c06b893b48a185e7b7c9ff76538, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 0562bb80c38854b12918623a3b05dfca, type: 2}
+  - {fileID: 11400000, guid: 38039c3af20024674ad409ceac55da3e, type: 2}
+  - {fileID: 11400000, guid: 22c6d74ee978548ed9c2c01751364cfe, type: 2}
+  - {fileID: 11400000, guid: 2f302208f911e48dcb26ad9e9027a7b7, type: 2}
+  - {fileID: 11400000, guid: 92ab48d2b26b4422998f42ce454a6cc9, type: 2}
+  - {fileID: 11400000, guid: a0edb854a9ee0418aafcdb16c23393c4, type: 2}
+  m_Extensions: []
+  m_Group: String Table
+  references:
+    version: 2
+    RefIds: []

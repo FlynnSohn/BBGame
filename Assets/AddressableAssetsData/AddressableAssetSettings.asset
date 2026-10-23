@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 800b53b3f313b4202ac150c71d60a9a6
   m_currentHash:
     serializedVersion: 2
-    Hash: 4aec34a51a27fdc4fe001a0b2d67c1d2
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_CatalogRequestsTimeout: 0
@@ -24,11 +24,11 @@ MonoBehaviour:
   m_InternalBundleIdMode: 1
   m_AssetLoadMode: 0
   m_BundledAssetProviderType:
-    m_AssemblyName: 
-    m_ClassName: 
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider
   m_AssetBundleProviderType:
-    m_AssemblyName: 
-    m_ClassName: 
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider
   m_IgnoreUnsupportedFilesInBuild: 0
   m_UniqueBundleIds: 0
   m_EnableJsonCatalog: 0
@@ -61,8 +61,15 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: c4feb1823ecb84c87ab1ccf73f0ee665, type: 2}
   - {fileID: 11400000, guid: f4e9afe2e2ea746e091752ba5ff0c8d7, type: 2}
+  - {fileID: 11400000, guid: 14dfd9801ccd44476b74511559aff3a5, type: 2}
+  - {fileID: 11400000, guid: ea0f311bd745b490895585ac4a58b848, type: 2}
   - {fileID: 11400000, guid: a64f15ae045c145bab219a5ca9e7cf92, type: 2}
+  - {fileID: 11400000, guid: 7a51986a5d0cf44e984affd0bb908a89, type: 2}
+  - {fileID: 11400000, guid: 6d0a8696eabc34ef8acda383463791ab, type: 2}
+  - {fileID: 11400000, guid: a2e2d5283d6d143f985f0e25d91d6347, type: 2}
+  - {fileID: 11400000, guid: df054795326d0428ba3cb968d7fd6683, type: 2}
   m_BuildSettings:
     m_LogResourceManagerExceptions: 1
     m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
@@ -103,6 +110,13 @@ MonoBehaviour:
     m_LabelNames:
     - default
     - Locale
+    - Locale-ko
+    - Locale-en
+    - Locale-es
+    - Locale-ja
+    - Locale-zh-Hans
+    - Locale-zh-Hant
+    - Preload
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 0fe278a9113df4d38b944619135a9fb9, type: 2}

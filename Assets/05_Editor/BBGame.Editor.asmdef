@@ -1,0 +1,24 @@
+{
+    "name": "BBGame.Editor",
+    "rootNamespace": "BBGame.EditorTools",
+    "references": [
+        "BBGame.Core",
+        "BBGame.Presentation",
+        "Unity.Localization",
+        "Unity.Localization.Editor",
+        "Unity.TextMeshPro",
+        "Unity.InputSystem",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

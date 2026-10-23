@@ -123,3 +123,6 @@ CLAUDE.md
 
 # ===문서 업로드하지 않음 ===
 /Docs/
+# 개인 에셋 (시안·레퍼런스 이미지 — Public 저장소에 올리지 않는다)
+/[Aa]ssets/03_Asset/Private/
+/[Aa]ssets/03_Asset/Private.meta

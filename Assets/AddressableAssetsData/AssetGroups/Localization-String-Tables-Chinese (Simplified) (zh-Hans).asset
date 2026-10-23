@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Chinese (Simplified) (zh-Hans)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-String-Tables-Chinese (Simplified) (zh-Hans)
+  m_GUID: 70a33b3f94f92462f84f7a34e7bf63ad
+  m_SerializeEntries:
+  - m_GUID: 38a146d7d9b1f4aff83932357ec231d0
+    m_Address: Clue_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39167fc2311794b439afd0098509c838
+    m_Address: Reveal_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5670717e696f4477c91f002343ca8c92
+    m_Address: Batter_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d6104585400745caa1c87e2c2011289
+    m_Address: Narration_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71d4c9255b57e4a0c81353f75fdfdcad
+    m_Address: System_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75c898668ddde411dad69a788ee42cc4
+    m_Address: UI_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92ab48d2b26b4422998f42ce454a6cc9
+    m_Address: Weather_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ca93a57bfabc44aea9da94e1b7941dc
+    m_Address: Card_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb165ad44c5664e829277209a141c4b8
+    m_Address: Bonus_zh-Hans
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh-Hans
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 46ce128ba18314433a317d19ba2e326b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a5f9ab24ccb694c6ca04561c52be58e3, type: 2}
+    - {fileID: 11400000, guid: a5f82c77bca144140b33f27967ee0584, type: 2}
+    - {fileID: 11400000, guid: 1bc3b3fefcec643c784f255d15f592a7, type: 2}
