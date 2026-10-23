@@ -3,6 +3,7 @@
     "rootNamespace": "BBGame.Tests",
     "references": [
         "BBGame.Core",
+        "BBGame.Presentation",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

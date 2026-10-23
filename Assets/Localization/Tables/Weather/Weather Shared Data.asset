@@ -14,15 +14,149 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Weather
   m_TableCollectionNameGuidString: f2e91c06b893b48a185e7b7c9ff76538
-  m_Entries: []
+  m_Entries:
+  - m_Id: 9980001
+    m_Key: 9980001
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562420
+  - m_Id: 9980002
+    m_Key: 9980002
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562421
+  - m_Id: 9980003
+    m_Key: 9980003
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562422
+  - m_Id: 9980004
+    m_Key: 9980004
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562423
+  - m_Id: 9980005
+    m_Key: 9980005
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562424
+  - m_Id: 9980006
+    m_Key: 9980006
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562425
+  - m_Id: 9980007
+    m_Key: 9980007
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562426
+  - m_Id: 9980008
+    m_Key: 9980008
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562427
+  - m_Id: 9980009
+    m_Key: 9980009
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562428
+  - m_Id: 9980010
+    m_Key: 9980010
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562429
+  - m_Id: 9980011
+    m_Key: 9980011
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562430
+  - m_Id: 9980012
+    m_Key: 9980012
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562431
+  - m_Id: 9980013
+    m_Key: 9980013
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562432
+  - m_Id: 9980014
+    m_Key: 9980014
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562433
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 7751032784689561850
+    rid: 7751032784689562434
   references:
     version: 2
     RefIds:
-    - rid: 7751032784689561850
+    - rid: 7751032784689562420
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uB0A0\uC528 \uC774\uB984 (cold) \u2014 '\uC624\uB298' \uCE69"
+    - rid: 7751032784689562421
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uB0A0\uC528 \uC774\uB984 (heat) \u2014 '\uC624\uB298' \uCE69"
+    - rid: 7751032784689562422
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uB0A0\uC528 \uC774\uB984 (wind) \u2014 '\uC624\uB298' \uCE69"
+    - rid: 7751032784689562423
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uB0A0\uC528 \uC774\uB984 (wet) \u2014 '\uC624\uB298' \uCE69"
+    - rid: 7751032784689562424
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uB0A0\uC528 \uC774\uB984 (night) \u2014 '\uC624\uB298' \uCE69"
+    - rid: 7751032784689562425
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uB0A0\uC528 \uC774\uB984 (dust) \u2014 '\uC624\uB298' \uCE69"
+    - rid: 7751032784689562426
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCEE8\uB514\uC158 \uC774\uB984 (feel) \u2014 '\uC624\uB298'
+          \uCE69"
+    - rid: 7751032784689562427
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCEE8\uB514\uC158 \uC774\uB984 (live) \u2014 '\uC624\uB298'
+          \uCE69"
+    - rid: 7751032784689562428
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCEE8\uB514\uC158 \uC774\uB984 (clear) \u2014 '\uC624\uB298'
+          \uCE69"
+    - rid: 7751032784689562429
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCEE8\uB514\uC158 \uC774\uB984 (curve) \u2014 '\uC624\uB298'
+          \uCE69"
+    - rid: 7751032784689562430
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCEE8\uB514\uC158 \uC774\uB984 (heavy) \u2014 '\uC624\uB298'
+          \uCE69"
+    - rid: 7751032784689562431
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCEE8\uB514\uC158 \uC774\uB984 (stiff) \u2014 '\uC624\uB298'
+          \uCE69"
+    - rid: 7751032784689562432
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "'\uC624\uB298' \uCE69 \u2014 \uC815\uADDC \uACBD\uAE30 \uD310\uC815
+          \uBC29\uC2DD (\uC790\uB3D9 \uD22C\uAD6C \uD310\uC815 \uC2DC\uC2A4\uD15C)"
+    - rid: 7751032784689562433
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "'\uC624\uB298' \uCE69 \u2014 \uC5F0\uC2B5 \uACBD\uAE30 \uD310\uC815
+          \uBC29\uC2DD"
+    - rid: 7751032784689562434
       type: {class: SequentialIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_NextAvailableId: 9980001
+        m_NextAvailableId: 9980015

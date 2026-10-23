@@ -16,8 +16,777 @@ MonoBehaviour:
     m_Code: ko
   m_SharedData: {fileID: 11400000, guid: b5014a27d4e054522a1a66867e29a805, type: 2}
   m_Metadata:
-    m_Items: []
-  m_TableData: []
+    m_Items:
+    - rid: 7751032784689562266
+  m_TableData:
+  - m_Id: 9950001
+    m_Localized: "\uBAB8\uCABD \uB192\uC740 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562267
+  - m_Id: 9950002
+    m_Localized: "\uBC14\uAE65 \uB192\uC740 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562268
+  - m_Id: 9950003
+    m_Localized: "\uBAB8\uCABD \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562269
+  - m_Id: 9950004
+    m_Localized: "\uBC14\uAE65 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562270
+  - m_Id: 9950005
+    m_Localized: "\uBC14\uAE65 \uB0AE\uC740 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562271
+  - m_Id: 9950006
+    m_Localized: "\uB192\uAC8C \uBE80 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562272
+  - m_Id: 9950007
+    m_Localized: "\uBAB8\uCABD \uBD99\uC778 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562273
+  - m_Id: 9950008
+    m_Localized: "\uBC14\uAE65 \uB0AE\uC740 \uC2AC\uB77C\uC774\uB354"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562274
+  - m_Id: 9950009
+    m_Localized: "\uBE60\uC9C0\uB294 \uC2AC\uB77C\uC774\uB354"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562275
+  - m_Id: 9950010
+    m_Localized: "\uAC00\uC6B4\uB370 \uB0AE\uC740 \uC2AC\uB77C\uC774\uB354"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562276
+  - m_Id: 9950011
+    m_Localized: "\uCCB4\uC778\uC9C0\uC5C5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562277
+  - m_Id: 9950012
+    m_Localized: "\uBC14\uAE65 \uB0AE\uC740 \uCCB4\uC778\uC9C0\uC5C5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562278
+  - m_Id: 9950013
+    m_Localized: "\uCEE4\uBE0C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562279
+  - m_Id: 9950014
+    m_Localized: "\uBAB8\uCABD \uB0AE\uC740 \uCEE4\uBE0C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562280
+  - m_Id: 9950015
+    m_Localized: "\uB5A8\uC5B4\uC9C0\uB294 \uCEE4\uBE0C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562281
+  - m_Id: 9950016
+    m_Localized: "\uB77C\uC774\uC9D5 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562282
+  - m_Id: 9950017
+    m_Localized: "\uBC14\uAE65 \uCF54\uB108 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562283
+  - m_Id: 9950018
+    m_Localized: "\uD558\uC774 \uD328\uC2A4\uD2B8\uBCFC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562284
+  - m_Id: 9950019
+    m_Localized: "\uBAB8\uCABD \uD30C\uACE0\uB4DC\uB294 \uC2AC\uB77C\uC774\uB354"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562285
+  - m_Id: 9950020
+    m_Localized: "\uB5A8\uC5B4\uC9C0\uB294 \uCCB4\uC778\uC9C0\uC5C5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562286
+  - m_Id: 9950021
+    m_Localized: "\uD3ED\uD3EC\uC218 \uCEE4\uBE0C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562287
+  - m_Id: 9950022
+    m_Localized: "\uC5D0\uC774\uC2A4\uC758 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562288
+  - m_Id: 9950023
+    m_Localized: "\uACB0\uC815\uAD6C \uC2AC\uB77C\uC774\uB354"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562289
+  - m_Id: 9950024
+    m_Localized: "\uC11C\uD074 \uCCB4\uC778\uC9C0\uC5C5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562290
+  - m_Id: 9950025
+    m_Localized: "\uB4DC\uB86D \uCEE4\uBE0C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562291
+  - m_Id: 9950026
+    m_Localized: "\uC624\uB298\uC758 \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562292
+  - m_Id: 9950027
+    m_Localized: "\uC804\uB825\uD22C\uAD6C \uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562293
+  - m_Id: 9950028
+    m_Localized: "\uAC00\uC6B4\uB370 \uBCF4\uACE0 \uB358\uC9C0\uAE30"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562294
+  - m_Id: 9950029
+    m_Localized: "\uC544\uB9AC\uB791\uBCFC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562295
+  - m_Id: 9950030
+    m_Localized: "\uC6D0\uBC14\uC6B4\uB4DC \uCEE4\uBE0C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562296
+  - m_Id: 9950031
+    m_Localized: "\uBC31\uB3C4\uC5B4 \uC2AC\uB77C\uC774\uB354"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562297
+  - m_Id: 9950032
+    m_Localized: "\uBAB8\uCABD \uD22C\uC2EC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562298
+  - m_Id: 9950033
+    m_Localized: "\uBAB8\uCABD \uB0AE\uC740 \uD22C\uC2EC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562299
+  - m_Id: 9950034
+    m_Localized: "\uC5ED\uD68C\uC804 \uD22C\uC2EC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562300
+  - m_Id: 9950035
+    m_Localized: "\uAC00\uB77C\uC549\uB294 \uC2F1\uCEE4"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562301
+  - m_Id: 9950036
+    m_Localized: "\uBAB8\uCABD \uC2F1\uCEE4"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562302
+  - m_Id: 9950037
+    m_Localized: "\uBCD1\uC0B4 \uC720\uB3C4 \uC2F1\uCEE4"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562303
+  - m_Id: 9950038
+    m_Localized: "\uBAB8\uCABD \uCEE4\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562304
+  - m_Id: 9950039
+    m_Localized: "\uBC14\uAE65 \uCEE4\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562305
+  - m_Id: 9950040
+    m_Localized: "\uBA39\uD788\uB294 \uCEE4\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562306
+  - m_Id: 9950041
+    m_Localized: "\uBC14\uAE65 \uC2A4\uC704\uD37C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562307
+  - m_Id: 9950042
+    m_Localized: "\uBE60\uC9C0\uB294 \uC2A4\uC704\uD37C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562308
+  - m_Id: 9950043
+    m_Localized: "\uACB0\uC815\uAD6C \uC2A4\uC704\uD37C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562309
+  - m_Id: 9950044
+    m_Localized: "\uC2A4\uD50C\uB9AC\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562310
+  - m_Id: 9950045
+    m_Localized: "\uB5A8\uC5B4\uC9C0\uB294 \uC2A4\uD50C\uB9AC\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562311
+  - m_Id: 9950046
+    m_Localized: "\uBC14\uAE65 \uC2A4\uD50C\uB9AC\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562312
+  - m_Id: 9950047
+    m_Localized: "\uD3EC\uD06C\uBCFC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562313
+  - m_Id: 9950048
+    m_Localized: "\uB5A8\uC5B4\uC9C0\uB294 \uD3EC\uD06C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562314
+  - m_Id: 9950049
+    m_Localized: "\uACB0\uC815\uAD6C \uD3EC\uD06C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562315
+  - m_Id: 9950050
+    m_Localized: "2\uC2A4\uD2B8\uB77C\uC774\uD06C\uC5D0\uC11C \uAC00\uC0B0 +0.5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562316
+  - m_Id: 9950051
+    m_Localized: "\uBCFC\uBC30\uD569 \uC871\uBCF4 \uC131\uB9BD \uC2DC \uC871\uBCF4
+      +0.5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562317
+  - m_Id: 9950052
+    m_Localized: "\uC874 \uBC16\uC5D0\uC11C \uB530\uB77C \uB098\uC62C \uD655\uB960
+      +15%p"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562318
+  - m_Id: 9950053
+    m_Localized: "\uC9C1\uC804 \uACF5\uC774 \uC9C1\uAD6C\uBA74 \uAC00\uC0B0 +1"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562319
+  - m_Id: 9950054
+    m_Localized: "\uB178\uB9BC\uC5D0 \uAC78\uB824\uB3C4 \uBC30\uC218 \xD70.75"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562320
+  - m_Id: 9950055
+    m_Localized: "\uC77D\uC5C8\uB2E4 \uBC30\uC218 \xD73.0"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562321
+  - m_Id: 9950056
+    m_Localized: "2\uC2A4\uD2B8\uB77C\uC774\uD06C\uC5D0\uC11C \uAC00\uC0B0 +1"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562322
+  - m_Id: 9950057
+    m_Localized: "\uC81C\uC555 \uC0C1\uD0DC\uC5D0\uC11C \uBC14\uAC00\uC9C0 \uC548\uD0C0\uAC00
+      \uB098\uC624\uC9C0 \uC54A\uB294\uB2E4"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562323
+  - m_Id: 9950058
+    m_Localized: "\uC9C1\uC804 \uACF5\uC774 \uC9C1\uAD6C \uACC4\uC5F4\uC774\uBA74
+      \uAC00\uC0B0 +1.5 \xB7 \uAC78\uB9AC\uBA74 \uC7A5\uD0C0 \xD71.5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562324
+  - m_Id: 9950059
+    m_Localized: "\uC874 \uBC16\uC5D0\uC11C \uB530\uB77C \uB098\uC62C \uD655\uB960
+      +15%p \xB7 2\uC2A4\uD2B8\uB77C\uC774\uD06C \uD5DB\uC2A4\uC719 \xD71.2"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562325
+  - m_Id: 9950060
+    m_Localized: "\uBC18\uB300 \uC190 \uD0C0\uC790 \u2014 \uB8E8\uD0B9 \uC2A4\uD2B8\uB77C\uC774\uD06C
+      \xD71.5, \uBAA8\uC11C\uB9AC \uD754\uB4E4\uB9BC \uAC00\uC0B0 \uC5C6\uC74C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562326
+  - m_Id: 9950061
+    m_Localized: "\uC9C1\uAD6C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562327
+  - m_Id: 9950062
+    m_Localized: "\uD22C\uC2EC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562328
+  - m_Id: 9950063
+    m_Localized: "\uC2AC\uB77C\uC774\uB354"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562329
+  - m_Id: 9950064
+    m_Localized: "\uC2A4\uC704\uD37C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562330
+  - m_Id: 9950065
+    m_Localized: "\uCEE4\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562331
+  - m_Id: 9950066
+    m_Localized: "\uCEE4\uBE0C"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562332
+  - m_Id: 9950067
+    m_Localized: "\uC544\uB9AC\uB791\uBCFC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562333
+  - m_Id: 9950068
+    m_Localized: "\uCCB4\uC778\uC9C0\uC5C5"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562334
+  - m_Id: 9950069
+    m_Localized: "\uC2A4\uD50C\uB9AC\uD130"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562335
+  - m_Id: 9950070
+    m_Localized: "\uD3EC\uD06C\uBCFC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562336
+  - m_Id: 9950071
+    m_Localized: "\uC2F1\uCEE4"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562337
+  - m_Id: 9950072
+    m_Localized: "\uAD6C\uC704 {stuff} \xB7 \uC2A4\uD0DC {cost}"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562266
+      - rid: 7751032784689562338
+  - m_Id: 9950073
+    m_Localized: "\uACE0\uC815 \xB7 {type}"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562266
+      - rid: 7751032784689562339
+  - m_Id: 9950074
+    m_Localized: "\uC874 \uC5B4\uB518\uAC00 \xB7 \uAC00\uC6B4\uB370 \uAC00\uC911"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562340
+  - m_Id: 9950075
+    m_Localized: "\uD55C\uAC00\uC6B4\uB370 {center}% \xB7 \uC606 \uCE78 {side}%"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562266
+      - rid: 7751032784689562341
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7751032784689562266
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 9950072
+        - id: 9950073
+        - id: 9950075
+    - rid: 7751032784689562267
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ff_in_hi) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562268
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ff_out_hi) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562269
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ff_in_mid) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562270
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ff_out_mid) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562271
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ff_out_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562272
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ff_hi_ball) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562273
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ff_in_ball) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562274
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (sl_out_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562275
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (sl_ball) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562276
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (sl_mid_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562277
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ch_mid_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562278
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ch_out_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562279
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (cu_mid_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562280
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (cu_in_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562281
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (cu_ball) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562282
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_ff_rise) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562283
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_ff_paint) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562284
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_ff_up) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562285
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_sl_jam) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562286
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_ch_drop) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562287
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_cu_big) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562288
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (s_ff) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562289
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (s_sl) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562290
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (s_ch) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562291
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (s_cu) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562292
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (s_today) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562293
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (p_power) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562294
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (fx_mid) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562295
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_ep) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562296
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_cu_dirt) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562297
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_sl_back) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562298
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ft_in_mid) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562299
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (ft_in_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562300
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_ft_run) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562301
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (si_mid_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562302
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (si_in_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562303
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_si_dp) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562304
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (fc_in_mid) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562305
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (fc_out_mid) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562306
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_fc_jam) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562307
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (st_out_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562308
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (st_ball) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562309
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_st_fin) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562310
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (sp_mid_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562311
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (sp_ball) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562312
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (r_sp_out) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562313
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (fo_mid_lo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562314
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (fo_ball) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562315
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uC774\uB984 (s_fo) \u2014 \uC190\uD328\xB7\uB9AC\uBE4C
+          \uACB0\uACFC \uC904"
+    - rid: 7751032784689562316
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (rise) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562317
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (mix) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562318
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (drop) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562319
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (tempo) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562320
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (jam) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562321
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (ace) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562322
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (finish) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562323
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (bite) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562324
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (eephus) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562325
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (dirt) \u2014 \uC190\uD328
+          \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562326
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uCE74\uB4DC \uD2B9\uC218 \uD6A8\uACFC (backdoor) \u2014
+          \uC190\uD328 \uCE74\uB4DC \uC544\uB798 \uC904"
+    - rid: 7751032784689562327
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (FF) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562328
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (FT) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562329
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (SL) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562330
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (ST) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562331
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (FC) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562332
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (CU) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562333
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (EP) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562334
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (CH) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562335
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (SP) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562336
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (FO) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562337
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAD6C\uC885 \uC774\uB984 (SI) \u2014 \uC190\uD328 \uCE74\uB4DC
+          \uAD6C\uC885 \uD0DC\uADF8\xB7\uBB38\uC7A5 \uBCC0\uC218"
+    - rid: 7751032784689562338
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uC190\uD328 \uCE74\uB4DC \uB9E8 \uC544\uB798 \u2014 {stuff}
+          \uAD6C\uC704, {cost} \uC2A4\uD0DC\uBBF8\uB098 \uBE44\uC6A9. \uC608\uC0C1
+          \uAD6C\uC18D\uC740 \uB123\uC9C0 \uC54A\uB294\uB2E4 (\xA720-4)"
+    - rid: 7751032784689562339
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uC190\uD328 \uACE0\uC815 \uCE74\uB4DC \uAD6C\uC885 \uD0DC\uADF8
+          \u2014 {type} \uAD6C\uC885 \uC774\uB984"
+    - rid: 7751032784689562340
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uC804\uB825\uD22C\uAD6C \uC9C1\uAD6C \uCE74\uB4DC \uCF54\uC2A4
+          \uC904"
+    - rid: 7751032784689562341
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAC00\uC6B4\uB370 \uBCF4\uACE0 \uB358\uC9C0\uAE30 \uCE74\uB4DC
+          \uCF54\uC2A4 \uC904 \u2014 \uCC29\uC9C0 \uD655\uB960 (\uD29C\uB2DD \uAC12)"

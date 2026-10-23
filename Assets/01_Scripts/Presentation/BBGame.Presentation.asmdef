@@ -6,6 +6,7 @@
         "UniTask",
         "PrimeTween.Runtime",
         "Unity.Localization",
+        "Unity.ResourceManager",
         "Unity.InputSystem",
         "Unity.TextMeshPro",
         "UnityEngine.UI"

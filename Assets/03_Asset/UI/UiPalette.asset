@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1cf27912edf4dbb9640bcfd093bc56, type: 3}
+  m_Name: UiPalette
+  m_EditorClassIdentifier: BBGame.Presentation::BBGame.Presentation.Common.UiPalette
+  read: {r: 0.078431375, g: 0.6392157, b: 0.56078434, a: 1}
+  readText: {r: 0.043137256, g: 0.49019608, b: 0.42745098, a: 1}
+  intent: {r: 0.84705883, g: 0.27058825, b: 0.23529412, a: 1}
+  intentText: {r: 0.70980394, g: 0.1882353, b: 0.16470589, a: 1}
+  warn: {r: 0.8901961, g: 0.5882353, b: 0.101960786, a: 1}
+  warnText: {r: 0.65882355, g: 0.41568628, b: 0, a: 1}
+  gold: {r: 0.83137256, g: 0.627451, b: 0.09019608, a: 1}
+  goldBorder: {r: 0.6117647, g: 0.45490196, b: 0, a: 1}
+  panel: {r: 1, g: 0.9843137, b: 0.9490196, a: 0.94}
+  panelBorder: {r: 0.8117647, g: 0.8862745, b: 0.9411765, a: 1}
+  accent: {r: 0.18431373, g: 0.5254902, b: 0.8392157, a: 1}
+  text: {r: 0.11764706, g: 0.16470589, b: 0.21176471, a: 1}
+  textSub: {r: 0.35686275, g: 0.41960785, b: 0.47058824, a: 1}
+  textDim: {r: 0.6039216, g: 0.654902, b: 0.69803923, a: 1}
+  textOnAccent: {r: 1, g: 1, b: 1, a: 1}
+  gradeN: {r: 0.18431373, g: 0.5254902, b: 0.8392157, a: 1}
+  gradeR: {r: 0.54509807, g: 0.36078432, b: 0.9647059, a: 1}
+  gradeS: {r: 0.83137256, g: 0.627451, b: 0.09019608, a: 1}
+  stamina: {r: 0.29803923, g: 0.7254902, b: 0.26666668, a: 1}
+  focus: {r: 0.35686275, g: 0.42352942, b: 0.8509804, a: 1}
+  barTrack: {r: 0.8901961, g: 0.9254902, b: 0.9529412, a: 1}
+  pipOff: {r: 0.8352941, g: 0.87058824, b: 0.9019608, a: 1}
+  ball: {r: 0.078431375, g: 0.6392157, b: 0.56078434, a: 1}
+  strike: {r: 0.8901961, g: 0.5882353, b: 0.101960786, a: 1}
+  outPip: {r: 0.84705883, g: 0.27058825, b: 0.23529412, a: 1}
+  baseOn: {r: 0.8901961, g: 0.5882353, b: 0.101960786, a: 1}
+  baseOff: {r: 1, g: 1, b: 1, a: 0.9}
+  zoneLine: {r: 1, g: 1, b: 1, a: 1}
+  zoneRingLine: {r: 1, g: 1, b: 1, a: 0.55}
+  zoneIdle: {r: 1, g: 1, b: 1, a: 0.08}
+  zoneInsideIdle: {r: 1, g: 1, b: 1, a: 0.22}
+  zoneLit: {r: 0.18431373, g: 0.5254902, b: 0.8392157, a: 0.35}
+  zoneSelected: {r: 0.18431373, g: 0.5254902, b: 0.8392157, a: 0.7}
+  zoneIntended: {r: 1, g: 1, b: 1, a: 0.35}
+  zoneCountText: {r: 0.11764706, g: 0.16470589, b: 0.21176471, a: 1}
+  card: {r: 1, g: 1, b: 1, a: 0.97}
+  cardDimAlpha: 0.35
+  cardSelectedFrame: {r: 0.18431373, g: 0.5254902, b: 0.8392157, a: 1}

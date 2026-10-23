@@ -25,6 +25,7 @@ namespace BBGame.Core
         public BenchTuning bench = new BenchTuning();
         public ScoutTuning scout = new ScoutTuning();
         public GameTuning game = new GameTuning();
+        public RestTuning rest = new RestTuning();
     }
 
     /// <summary>목표치 (§11-1)</summary>
@@ -177,5 +178,15 @@ namespace BBGame.Core
     {
         public int innings;
         [Tooltip("스태미나 구간 3 피로 강화")] public bool fatigueHard;
+    }
+
+    /// <summary>투구 수 → 의무 휴식일 (§22-4 [가설: 고교야구 투구 수 규정]). 프로토타입 REST·restWarn</summary>
+    [Serializable]
+    public sealed class RestTuning
+    {
+        [Tooltip("휴식 구간 상한 — i번째 값 이하로 던지면 휴식 i일, 마지막 값을 넘으면 (개수)일")]
+        public int[] maxPitches = { 30, 45, 60, 75 };
+        [Tooltip("휴식 구간 경계·투구 수 한도 몇 구 전부터 경고하나")]
+        public int warnBefore = 5;
     }
 }

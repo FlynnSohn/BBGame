@@ -7,6 +7,7 @@ using UnityEditor.Localization;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.Localization.Tables;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,7 @@ namespace BBGame.EditorTools.Setup
     /// M0 프로젝트 셋업 메뉴 (Docs/work/match_m0_foundation_plan.md).
     /// 씬·Localization·TMP 에셋은 YAML을 손으로 쓰지 않고 Unity API로 만든다.
     /// 모든 메뉴는 여러 번 실행해도 결과가 같다 — 이미 있는 것은 건너뛴다.
-    /// 순서: 1 → (도메인 리로드 대기) → 2 ~ 5 (또는 "2~5 한 번에")
+    /// 순서: 1 → (도메인 리로드 대기) → 2 ~ 5 (또는 "2~5 한 번에"). M2: 7(단축키) → 6(경기 화면, MatchScreenBuilder)
     /// </summary>
     public static class ProjectSetupMenu
     {
@@ -351,6 +352,42 @@ namespace BBGame.EditorTools.Setup
             }
             AssetDatabase.SaveAssets();
             Debug.Log("[Setup] 화면 방향: 가로 두 방향만 허용");
+        }
+
+        // ───────────────────────── 7. 경기 단축키 (M2) ─────────────────────────
+
+        private const string k_Actions = "Assets/InputSystem_Actions.inputactions";
+
+        /// <summary>
+        /// 프로젝트 전역 Input Actions에 Match 맵을 더한다 (match_m2_screen_plan 범위 6, Q15).
+        /// 1~8 카드 고르기 · Space/Enter 던지기(리빌·안내 중에는 다음) · Esc 선택 취소. 키보드 바인딩은 Keyboard&Mouse 묶음.
+        /// 에셋 API로 더하고 에셋 자신의 JSON 형식(ToJson)으로 쓴다 — 기존 맵은 건드리지 않는다
+        /// </summary>
+        [MenuItem(k_Menu + "7. 경기 단축키 (Match 맵)", false, 7)]
+        private static void AddMatchActionMap()
+        {
+            var asset = AssetDatabase.LoadAssetAtPath<InputActionAsset>(k_Actions);
+            if (asset == null) { Debug.LogError($"[Setup] {k_Actions}이 없다"); return; }
+            if (asset.FindActionMap("Match") != null) { Debug.Log("[Setup] Match 맵이 이미 있다 — 건너뜀"); return; }
+
+            const string group = "Keyboard&Mouse";
+            var map = asset.AddActionMap("Match");
+            for (int i = 1; i <= 8; i++)
+            {
+                var card = map.AddAction("Card" + i, InputActionType.Button);
+                card.AddBinding("<Keyboard>/" + i).WithGroups(group);
+                card.AddBinding("<Keyboard>/numpad" + i).WithGroups(group);
+            }
+            var confirm = map.AddAction("Confirm", InputActionType.Button);
+            confirm.AddBinding("<Keyboard>/space").WithGroups(group);
+            confirm.AddBinding("<Keyboard>/enter").WithGroups(group);
+            confirm.AddBinding("<Keyboard>/numpadEnter").WithGroups(group);
+            var cancel = map.AddAction("Cancel", InputActionType.Button);
+            cancel.AddBinding("<Keyboard>/escape").WithGroups(group);
+
+            File.WriteAllText(k_Actions, asset.ToJson());
+            AssetDatabase.ImportAsset(k_Actions);
+            Debug.Log("[Setup] Match 맵 추가 — Card1~8 · Confirm · Cancel");
         }
 
         // ───────────────────────── 2~5 한 번에 ─────────────────────────
