@@ -166,12 +166,14 @@ namespace BBGame.Core
                 b.RuleKnown = true;
                 _s.HitStreak = hit && Tier().Level == 3 ? _s.HitStreak + 1 : 0;   // 구간 3 연속 피안타 (벤치 판단)
                 _s.WalkStreak = res == PitchOutcome.Walk || res == PitchOutcome.Hbp ? _s.WalkStreak + 1 : 0;
+                if (IsStrikeoutResult(res)) _s.Strikeouts++;
+                if (res == PitchOutcome.Walk || res == PitchOutcome.Hbp) _s.Walks++;
                 // (M7) 상태형 기묘한 족보
                 _s.BatterIndex = (_s.BatterIndex + 1) % 9;
             }
             r.AtBatEnded = abEnd;
 
-            if (_s.Outs >= 3) EndHalfInning();
+            if (_s.Outs >= 3) EndTop();                              // 아웃 3이 강판보다 먼저 (프로토타입 순서)
             else if (_s.Stamina <= 0) PitcherExit(ExitReason.Stamina);
             else if (abEnd)
             {
@@ -186,8 +188,8 @@ namespace BBGame.Core
 
             r.BasesAfter = Mask(); r.OutsAfter = _s.Outs;
             r.StaminaAfter = _s.Stamina; r.MentalAfter = _s.Mental;
-            r.HalfInningEnded = _s.Phase == MatchPhase.HalfInningOver;
-            r.PitcherExited = _s.Phase == MatchPhase.PitcherExited;
+            r.HalfInningEnded = _s.Phase == MatchPhase.BonusPick;
+            r.PitcherExited = _s.ExitReason != ExitReason.None;   // 강판했으면 불펜이 남은 이닝까지 끝냈다 (Phase = Ended)
             r.ExitReason = _s.ExitReason;
             return r;
         }
@@ -204,21 +206,6 @@ namespace BBGame.Core
                 AddMental(res == PitchOutcome.Dominant ? _t.mental.dominant : _t.mental.strikeout);
             }
             else res = PitchOutcome.Cut;   // 파울 처리, 2스트라이크 유지
-        }
-
-        /// <summary>반 이닝 종료 — 주자를 비우고 대기 (M3: 3택1·우리 공격)</summary>
-        private void EndHalfInning()
-        {
-            ClearBases();
-            // (M7) 만루 탈출·경제적 이닝
-            _s.Phase = MatchPhase.HalfInningOver;
-        }
-
-        /// <summary>강판 — M1은 신호만. 남은 이닝 불펜 처리는 M3</summary>
-        private void PitcherExit(ExitReason reason)
-        {
-            _s.ExitReason = reason;
-            _s.Phase = MatchPhase.PitcherExited;
         }
 
         /// <summary>
@@ -248,15 +235,22 @@ namespace BBGame.Core
             return false;
         }
 
-        /// <summary>상대 득점 기록 — 주인공 책임 실점·자책점 (§23-3)</summary>
-        private void AddOppRuns(int n)
+        /// <summary>상대 득점 기록 — 주인공 책임 실점·자책점 (§23-3) + 실점 장부</summary>
+        private void AddOppRuns(int n) => AddOppRuns(n, true, _unearned);
+
+        /// <summary>상대 득점 — charged면 주인공 실점 (unearned 수까지 비자책). 아니면 점수·라인스코어·장부만 (프로토타입 addOppRuns)</summary>
+        private void AddOppRuns(int n, bool charged, int unearned)
         {
             if (n <= 0) return;
             _s.ScoreOpp += n;
             _s.LineOpp[_s.Inning - 1] += n;
-            _s.RunsAllowed += n;
-            _s.EarnedRuns += n - System.Math.Min(n, _unearned);
-            _s.InningRuns += n;
+            if (charged)
+            {
+                _s.RunsAllowed += n;
+                _s.EarnedRuns += n - System.Math.Min(n, unearned);
+                _s.InningRuns += n;
+            }
+            _s.LedgerList.Add(new LedgerEntry(false, n, charged, PitcherOfRecord.Me));
         }
 
         private static bool IsHit(PitchOutcome o) => o == PitchOutcome.Single || o == PitchOutcome.Double || o == PitchOutcome.Triple || o == PitchOutcome.HomeRun;

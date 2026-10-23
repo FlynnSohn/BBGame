@@ -32,6 +32,8 @@ namespace BBGame.Presentation.Match
         private CancellationToken _ct;
         /// <summary>끌고 있는 손패 번호 (없으면 −1) — 끄는 동안 그 카드의 코스를 밝힌다</summary>
         private int _dragIndex = -1;
+        /// <summary>화면에 보여 준 반 이닝 기록 수 (HalfLog)</summary>
+        private int _shownHalves;
 
         private IMatchReadOnly S => _engine.State;
         private TuningConfig T => _db.Tuning;
@@ -110,7 +112,12 @@ namespace BBGame.Presentation.Match
             RefreshPlay();
         }
 
-        private void OnCardKey(int handIndex) => OnCardClicked(handIndex);
+        /// <summary>1~8 — 보너스 창이 떠 있으면 그 번호를 고르고, 아니면 카드를 고른다</summary>
+        private void OnCardKey(int index)
+        {
+            if (_v.bonus != null && _v.bonus.IsShown) { _v.bonus.Choose(index); return; }
+            OnCardClicked(index);
+        }
 
         private void OnCellClicked(ZoneId visual)
         {
@@ -131,6 +138,7 @@ namespace BBGame.Presentation.Match
         {
             if (_v.reveal.IsShown) { _v.reveal.Next(); return; }
             if (_v.banner.IsShown) { _v.banner.Confirm(); return; }
+            if (_v.result != null && _v.result.IsShown) { _v.result.Confirm(); return; }
             OnThrowClicked();
         }
 
@@ -192,7 +200,7 @@ namespace BBGame.Presentation.Match
                 ShowReveal(r);
                 await _v.reveal.WaitNextAsync(_ct);
                 _v.reveal.Hide();
-                await HandlePhaseAsync();
+                await HandlePhaseAsync(r);
             }
             catch (OperationCanceledException)
             {
@@ -202,41 +210,60 @@ namespace BBGame.Presentation.Match
             RefreshAll();
         }
 
-        /// <summary>반 이닝 종료 → [다음 이닝] (M1 임시 명령) · 강판·경기 끝 → [처음부터]</summary>
-        private async UniTask HandlePhaseAsync()
+        /// <summary>
+        /// 투구 뒤 단계 — 강판: 안내(이유 + 구원 한 줄) → 결과 창 · 아웃 3: 보너스 3택1 → 우리 공격 한 줄 → 다음 이닝 또는 결과 창.
+        /// 엔진은 강판·우리 공격을 이미 계산해 두었다 (G2) — 화면은 기록(HalfLog)을 따라 보여 주기만 한다
+        /// </summary>
+        private async UniTask HandlePhaseAsync(PitchResult r)
         {
-            switch (_engine.Phase)
+            if (r.PitcherExited)
             {
-                case MatchPhase.HalfInningOver:
-                    {
-                        string title = _args.Clear().Set("inning", S.Inning).Format(Ui.halfOverTitle);
-                        await _v.banner.ShowAsync(title, Loc.Get(Ui.halfOverBody), Loc.Get(Ui.nextInning), _ct);
-                        _engine.AdvanceHalfInning();
-                        if (_engine.Phase == MatchPhase.Ended) await ShowEndAsync();
-                        break;
-                    }
-                case MatchPhase.PitcherExited:
-                    {
-                        string body = _args.Clear().Set("pitcher", Loc.Get(Ui.pitcherName)).Set("pitches", S.Pitches).Format(_cat.Exit(S.ExitReason));
-                        RefreshAll();
-                        await _v.banner.ShowAsync(Loc.Get(Ui.exitTitle), body, Loc.Get(Ui.restart), _ct);
-                        _restart?.Invoke();
-                        break;
-                    }
-                case MatchPhase.Ended:
-                    await ShowEndAsync();
-                    break;
+                _shownHalves = S.HalfLog.Count;   // 불펜 이닝은 한 줄씩 보여 주지 않는다 (결과 창에 구원 한 줄)
+                RefreshAll();
+                string body = _args.Clear().Set("pitcher", Loc.Get(Ui.pitcherName)).Set("pitches", S.Pitches).Format(_cat.Exit(S.ExitReason))
+                              + "\n" + ReliefLine();
+                await _v.banner.ShowAsync(Loc.Get(Ui.exitTitle), body, Loc.Get(Ui.seeResult), _ct);
+                await ShowResultAsync();
+                return;
+            }
+            while (_engine.Phase == MatchPhase.BonusPick)
+            {
+                RefreshAll();
+                int pick = await PickBonusAsync();
+                _engine.ChooseBonus(pick);
+                await ShowNewHalvesAsync();
+            }
+            await ShowNewHalvesAsync();   // 고를 보너스가 없어 엔진이 바로 넘어갔을 때
+            if (_engine.Phase == MatchPhase.Ended) await ShowResultAsync();
+        }
+
+        /// <summary>아직 보여 주지 않은 우리 공격 반 이닝을 한 줄씩 — "n회말 · 윤재석의 적시타로 1점."</summary>
+        private async UniTask ShowNewHalvesAsync()
+        {
+            var log = S.HalfLog;
+            while (_shownHalves < log.Count)
+            {
+                var h = log[_shownHalves++];
+                if (h.Kind != HalfKind.UsOffense) continue;
+                RefreshAll();
+                bool last = _engine.Phase == MatchPhase.Ended && _shownHalves >= log.Count;
+                string title = _args.Clear().Set("inning", h.Inning).Format(Ui.bottomTitle);
+                await _v.banner.ShowAsync(title, OffenseText(h), Loc.Get(last ? Ui.seeResult : Ui.nextInning), _ct);
             }
         }
 
-        private async UniTask ShowEndAsync()
+        /// <summary>경기 결과 창 → [처음부터] (M2 임시 — 경기 후 화면은 M8)</summary>
+        private async UniTask ShowResultAsync()
         {
             RefreshAll();
-            string body = _args.Clear()
+            var result = S.Result;
+            var color = result == MatchResult.Win ? _pal.readText : result == MatchResult.Loss ? _pal.intentText : _pal.textSub;
+            string score = _args.Clear()
                 .Set("away", Loc.Get(_cat.SchoolName(_setup.Opponent.Id))).Set("awayRuns", S.ScoreOpp)
                 .Set("home", Loc.Get(_cat.SchoolName(HomeSchoolId))).Set("homeRuns", S.ScoreUs)
                 .Format(Ui.endBody);
-            await _v.banner.ShowAsync(Loc.Get(Ui.endTitle), body, Loc.Get(Ui.restart), _ct);
+            string relief = S.ExitReason != ExitReason.None ? ReliefLine() : string.Empty;
+            await _v.result.ShowAsync(Loc.Get(_cat.Result(result)), color, score, PitcherLineText(), relief, Loc.Get(Ui.restart), _ct);
             _restart?.Invoke();
         }
 

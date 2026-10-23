@@ -55,6 +55,10 @@ namespace BBGame.Presentation.Data
         [IdTable("batter")] [SerializeField] internal IdText[] _batterNames = Array.Empty<IdText>();
         [IdTable("position")] [SerializeField] internal IdText[] _positions = Array.Empty<IdText>();
         [IdTable("school")] [SerializeField] internal IdText[] _schoolNames = Array.Empty<IdText>();
+        [IdTable("ourBatter")] [SerializeField] internal IdText[] _ourBatters = Array.Empty<IdText>();
+        [IdTable("bullpen")] [SerializeField] internal IdText[] _bullpen = Array.Empty<IdText>();
+        [Tooltip("반 이닝 결과 한 줄 — id \"r{점수}.{번호}\", 4점 이상은 \"r4\"")]
+        [IdTable("offense")] [SerializeField] internal IdText[] _offenseLines = Array.Empty<IdText>();
 
         [Header("enum 순서 표")]
         [EnumTable("zone", typeof(ZoneId))] [SerializeField] internal LocalizedString[] _zones;
@@ -74,6 +78,13 @@ namespace BBGame.Presentation.Data
         [EnumTable("exitReason", typeof(ExitReason))] [SerializeField] internal LocalizedString[] _exitReasons;
         [EnumTable("targetNote", typeof(TargetNote))] [SerializeField] internal LocalizedString[] _targetNotes;
         [EnumTable("plate", typeof(PlateOrdinal))] [SerializeField] internal LocalizedString[] _plates;
+        [EnumTable("bonus", typeof(BonusId))] [SerializeField] internal LocalizedString[] _bonuses;
+        [EnumTable("bonusDesc", typeof(BonusId))] [SerializeField] internal LocalizedString[] _bonusDescs;
+        [EnumTable("evolution", typeof(Evolution))] [SerializeField] internal LocalizedString[] _evolutions;
+        [EnumTable("evolutionDesc", typeof(Evolution))] [SerializeField] internal LocalizedString[] _evolutionDescs;
+        [EnumTable("evolutionReq", typeof(Evolution))] [SerializeField] internal LocalizedString[] _evolutionReqs;
+        [EnumTable("bullpenState", typeof(BullpenState))] [SerializeField] internal LocalizedString[] _bullpenStates;
+        [EnumTable("result", typeof(MatchResult))] [SerializeField] internal LocalizedString[] _results;
 
         [Header("화면 문구 (ui:필드 이름)")]
         [SerializeField] internal UiTexts _ui = new UiTexts();
@@ -100,6 +111,18 @@ namespace BBGame.Presentation.Data
         /// <summary>목표치 보정 하나 (플래그 한 개)</summary>
         public LocalizedString TargetNoteText(TargetNote single) => At(_targetNotes, EnumIndex.OfFlag((int)single));
         public LocalizedString Plate(PlateOrdinal p) => At(_plates, (int)p);
+
+        public LocalizedString BonusName(BonusId b) => At(_bonuses, (int)b);
+        public LocalizedString BonusDesc(BonusId b) => At(_bonusDescs, (int)b);
+        /// <summary>진화 하나 (플래그 한 개)</summary>
+        public LocalizedString EvolutionName(Evolution single) => At(_evolutions, EnumIndex.OfFlag((int)single));
+        public LocalizedString EvolutionDesc(Evolution single) => At(_evolutionDescs, EnumIndex.OfFlag((int)single));
+        public LocalizedString EvolutionReq(Evolution single) => At(_evolutionReqs, EnumIndex.OfFlag((int)single));
+        public LocalizedString BullpenStateName(BullpenState s) => At(_bullpenStates, (int)s);
+        public LocalizedString Result(MatchResult r) => At(_results, (int)r);
+        public LocalizedString OurBatterName(string seedKey) => Find(_ourBatters, seedKey);
+        public LocalizedString BullpenName(string seedKey) => Find(_bullpen, seedKey);
+        public LocalizedString OffenseLine(string id) => Find(_offenseLines, id);
 
         public LocalizedString CardName(string cardId) => Find(_cardNames, cardId);
         public LocalizedString BatterName(string seedKey) => Find(_batterNames, seedKey);
@@ -175,6 +198,10 @@ namespace BBGame.Presentation.Data
 
         [Header("안내 (M2 임시)")]
         public LocalizedString nextInning, restart, halfOverTitle, halfOverBody, exitTitle, endTitle, endBody;
+
+        [Header("이닝 보너스 · 우리 공격 · 결과 (M3)")]
+        public LocalizedString bonusTitle, bonusLevel, evolutionTag, bottomTitle, seeResult;
+        public LocalizedString bullpenChip, bullpenCount, bonusLevelChip, pitcherLine, reliefRuns, reliefHold;
 
         [Header("공통")]
         public LocalizedString listSeparator, courseSeparator, pitcherName;

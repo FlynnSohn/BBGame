@@ -28,10 +28,10 @@ namespace BBGame.Presentation.Views
         }
 
         /// <summary>
-        /// 라인스코어. 상대(원정)는 진행 중인 이닝까지, 우리(홈)는 끝난 이닝까지 숫자를 쓴다 (우리 공격은 M3 전까지 0).
+        /// 라인스코어. 상대(원정)는 진행 중인 이닝까지, 우리(홈)는 공격을 마친 이닝까지. 우리 팀 H는 지금 늘 0 (사용자 결정 2026-10-24).
         /// 진행 중인 이닝 칸은 강조색
         /// </summary>
-        public void SetLine(IMatchReadOnly s, bool homeCurrentDone, UiPalette p)
+        public void SetLine(IMatchReadOnly s, UiPalette p)
         {
             int now = s.Inning - 1;
             for (int i = 0; i < _awayInnings.Length; i++)
@@ -39,8 +39,12 @@ namespace BBGame.Presentation.Views
                 SetCell(_awayInnings[i], i < s.LineInnings && i <= now, i < s.LineInnings ? s.GetLineOpp(i) : 0);
                 _awayInnings[i].color = i == now ? p.warnText : p.text;
             }
+            // 우리(홈)는 회말 공격을 한 칸만 쓴다. 9회초 끝에 앞서 있으면 X (전광판 기호라 번역하지 않는다)
             for (int i = 0; i < _homeInnings.Length; i++)
-                SetCell(_homeInnings[i], i < s.LineInnings && (i < now || (i == now && homeCurrentDone)), i < s.LineInnings ? s.GetLineUs(i) : 0);
+            {
+                if (i < s.LineInnings && s.HasLineUs(i) && s.IsLineUsX(i)) _homeInnings[i].SetText("X");
+                else SetCell(_homeInnings[i], i < s.LineInnings && s.HasLineUs(i), i < s.LineInnings ? s.GetLineUs(i) : 0);
+            }
 
             _awayR.SetText("{0}", s.ScoreOpp);
             _awayH.SetText("{0}", s.HitsOpp);

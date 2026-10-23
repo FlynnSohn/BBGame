@@ -20,6 +20,8 @@ namespace BBGame.Core
         [SerializeField] private CardDef _fixedCard;
         [Tooltip("컨디션 「손끝 감각이 좋다」로 들어오는 경기 한정 카드")]
         [SerializeField] private CardDef _todayCard;
+        [Tooltip("이닝 보너스·진화 표, 우리 타자·불펜 이름")]
+        [SerializeField] private BonusTable _bonusTable;
 
         public PitchTypeTable PitchTypes { get => _pitchTypes; internal set => _pitchTypes = value; }
         public TuningConfig Tuning { get => _tuning; internal set => _tuning = value; }
@@ -30,6 +32,7 @@ namespace BBGame.Core
         public CardDef[] StarterDeck { get => _starterDeck; internal set => _starterDeck = value; }
         public CardDef FixedCard { get => _fixedCard; internal set => _fixedCard = value; }
         public CardDef TodayCard { get => _todayCard; internal set => _todayCard = value; }
+        public BonusTable BonusTable { get => _bonusTable; internal set => _bonusTable = value; }
 
         /// <summary>프로토타입 id로 카드 찾기 (없으면 null)</summary>
         public CardDef FindCard(string id)

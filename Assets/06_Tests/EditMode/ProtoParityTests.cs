@@ -103,8 +103,9 @@ namespace BBGame.Tests
                     Assert.AreEqual((int)p["mental"], st.Mental, at + " 멘탈");
                     pitches++;
                 }
-                var expected = (bool)tr["pitcherOut"] ? MatchPhase.PitcherExited : MatchPhase.HalfInningOver;
-                Assert.AreEqual(expected, eng.Phase, $"시드 {tr["seed"]} 끝 단계");
+                // 반 이닝 끝이면 보너스 고르기, 강판이면 불펜이 남은 이닝까지 끝냈다 (M3)
+                if ((bool)tr["pitcherOut"]) { Assert.AreEqual(MatchPhase.Ended, eng.Phase, $"시드 {tr["seed"]} 끝 단계"); Assert.AreNotEqual(ExitReason.None, eng.State.ExitReason); }
+                else Assert.AreEqual(MatchPhase.BonusPick, eng.Phase, $"시드 {tr["seed"]} 끝 단계");
             }
             Assert.Greater(pitches, 1000);
         }

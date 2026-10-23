@@ -95,6 +95,8 @@ namespace BBGame.EditorTools.Setup
                 ["Reveal"] = EnsurePrefab("Reveal", BuildReveal),
                 ["Banner"] = EnsurePrefab("Banner", BuildBanner),
                 ["DragGhost"] = EnsurePrefab("DragGhost", BuildGhost),
+                ["BonusPick"] = EnsurePrefab("BonusPick", BuildBonusPick),       // M3
+                ["MatchResult"] = EnsurePrefab("MatchResult", BuildResult),     // M3
             };
 
             // 씬 — [M2] 오브젝트를 다시 놓는다
@@ -120,6 +122,8 @@ namespace BBGame.EditorTools.Setup
                 throwButton = Place<ThrowButtonView>(prefabs["ThrowButton"], play),
                 reveal = Place<SimpleRevealView>(prefabs["Reveal"], reveal),
                 banner = Place<MatchBannerView>(prefabs["Banner"], modal),
+                bonus = Place<BonusPickView>(prefabs["BonusPick"], modal),
+                result = Place<MatchResultView>(prefabs["MatchResult"], modal),
             };
             var ghost = Place<DragGhostView>(prefabs["DragGhost"], modal);   // 맨 위 — 마지막에 놓는다
 
@@ -138,6 +142,10 @@ namespace BBGame.EditorTools.Setup
             Record(views.reveal.gameObject);
             views.banner.gameObject.SetActive(false);
             Record(views.banner.gameObject);
+            views.bonus.gameObject.SetActive(false);
+            Record(views.bonus.gameObject);
+            views.result.gameObject.SetActive(false);
+            Record(views.result.gameObject);
             views.field = BuildField(fieldCanvas, fieldSprite, batterSprite);
 
             // 입력 — PlayerInput(Invoke C# Events) + Match 맵
@@ -659,6 +667,72 @@ namespace BBGame.EditorTools.Setup
             v._button = MakeButton(holder, "Button", Anchor.TopLeft, 0, 0, 160, 52, s_cat.Ui.nextInning, 18, local: true);
             v._buttonLabel = v._button.GetComponentInChildren<TMP_Text>();
             Object.DestroyImmediate(v._buttonLabel.GetComponent<LocalizedLabel>());   // 상황마다 다르다 — Presenter가 정한다
+            return root.gameObject;
+        }
+
+        /// <summary>이닝 보너스 3택1 (§13) — 카드 3장, 진화는 골드 테두리. 화면 가운데</summary>
+        private static GameObject BuildBonusPick()
+        {
+            var root = NewUi("BonusPick", null);
+            SetRect(root, Anchor.Stretch, 0, 0, W, H);
+            var dim = root.gameObject.AddComponent<Image>();
+            dim.sprite = s_white;
+            dim.color = new Color(0, 0, 0, 0.35f);
+            dim.raycastTarget = true;
+            var v = root.gameObject.AddComponent<BonusPickView>();
+            var panel = Panel("Panel", root, Anchor.Center, 540, 300, 840, 420);
+            MakeLabel(panel, "Title", 0, 22, 840, 40, 26, s_pal.text, TextAlignmentOptions.Center, true, s_cat.Ui.bonusTitle);
+            v._choices = new Button[3];
+            v._frames = new Image[3];
+            v._names = new TMP_Text[3];
+            v._levels = new TMP_Text[3];
+            v._effects = new TMP_Text[3];
+            v._notes = new TMP_Text[3];
+            for (int i = 0; i < 3; i++)
+            {
+                var card = NewUi("Choice" + (i + 1), panel);
+                SetRect(card, 30 + i * 268, 80, 244, 300);
+                var bg = card.gameObject.AddComponent<Image>();
+                bg.sprite = s_round;
+                bg.type = Image.Type.Sliced;
+                bg.color = s_pal.card;
+                var button = card.gameObject.AddComponent<Button>();
+                button.targetGraphic = bg;
+                var nav = button.navigation;
+                nav.mode = Navigation.Mode.None;
+                button.navigation = nav;
+                v._choices[i] = button;
+                v._frames[i] = Img(card, "Frame", 0, 0, 244, 300, s_pal.panelBorder, s_frame, true);
+                v._frames[i].type = Image.Type.Sliced;
+                MakeText(card, "Key", 14, 12, 30, 24, 14, s_pal.textDim, TextAlignmentOptions.MidlineLeft, true, (i + 1).ToString());
+                v._levels[i] = MakeText(card, "Level", 50, 12, 180, 24, 14, s_pal.accent, TextAlignmentOptions.MidlineRight, true, "Lv 0 → 1");
+                v._names[i] = MakeText(card, "Name", 14, 52, 216, 60, 22, s_pal.text, TextAlignmentOptions.TopLeft, true, "묵직한 직구");
+                v._effects[i] = MakeText(card, "Effect", 14, 120, 216, 100, 16, s_pal.textSub, TextAlignmentOptions.TopLeft, false, "직구 구위 +3");
+                v._notes[i] = MakeText(card, "Note", 14, 228, 216, 56, 13, s_pal.goldBorder, TextAlignmentOptions.TopLeft, false, "");
+            }
+            return root.gameObject;
+        }
+
+        /// <summary>경기 결과 (간이) — 승·패·무, 점수, 투수 기록 한 줄, 구원 한 줄, [처음부터]</summary>
+        private static GameObject BuildResult()
+        {
+            var root = NewUi("MatchResult", null);
+            SetRect(root, Anchor.Stretch, 0, 0, W, H);
+            var dim = root.gameObject.AddComponent<Image>();
+            dim.sprite = s_white;
+            dim.color = new Color(0, 0, 0, 0.45f);
+            dim.raycastTarget = true;
+            var v = root.gameObject.AddComponent<MatchResultView>();
+            var panel = Panel("Panel", root, Anchor.Center, 610, 320, 700, 380);
+            v._title = MakeText(panel, "Title", 0, 28, 700, 60, 48, s_pal.readText, TextAlignmentOptions.Center, true, "승리");
+            v._score = MakeText(panel, "Score", 0, 100, 700, 40, 26, s_pal.text, TextAlignmentOptions.Center, true, "솔뫼공고 2 : 3 해신고");
+            v._pitcher = MakeText(panel, "Pitcher", 40, 160, 620, 50, 16, s_pal.textSub, TextAlignmentOptions.Top, false, "9이닝 · 120구 · 피안타 6 · 실점 2 (자책 2) · 삼진 9 · 4사구 3");
+            v._relief = MakeText(panel, "Relief", 40, 214, 620, 40, 15, s_pal.warnText, TextAlignmentOptions.Top, false, "");
+            var holder = NewUi("ButtonHolder", panel);
+            SetRect(holder, 270, 296, 160, 52);
+            v._button = MakeButton(holder, "Button", Anchor.TopLeft, 0, 0, 160, 52, s_cat.Ui.restart, 18, local: true);
+            v._buttonLabel = v._button.GetComponentInChildren<TMP_Text>();
+            Object.DestroyImmediate(v._buttonLabel.GetComponent<LocalizedLabel>());   // Presenter가 정한다
             return root.gameObject;
         }
 

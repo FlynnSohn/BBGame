@@ -6,7 +6,7 @@ namespace BBGame.Core
     /// <summary>
     /// 경기 엔진 — 명령을 받아 상태를 바꾸고 결과를 돌려준다 (D1·D2). 동기·결정적, Unity 시간·난수를 쓰지 않는다.
     /// 처리 순서와 난수 호출 순서는 프로토타입 v12 엔진과 같다 (match_m1_core_plan 접근 4).
-    /// 파일 나눔: 이 파일(생성·타석·노림·반 이닝) · Preview · Throw · Reaction · InPlay · Running
+    /// 파일 나눔: 이 파일(생성·타석·노림) · Preview · Throw · Reaction · InPlay · Running · Inning(보너스·우리 공격·경기 끝) · Bullpen(강판 뒤)
     /// </summary>
     public sealed partial class MatchEngine
     {
@@ -44,6 +44,12 @@ namespace BBGame.Core
             _s.Stage = setup.Stage;
             _s.Modifiers = setup.Modifiers;
             _s.Phase = MatchPhase.NotStarted;
+
+            // 경기 단위 변동 굴리기 — 프로토타입 newGame과 같은 순서 (컨디션 → 날씨 → 불펜), 덱 셔플 전 (§12)
+            if (setup.RollConditions) setup.Modifiers.Conditions = Pregame.RollConditions(_f, ref _rng);
+            if (setup.RollWeather) setup.Modifiers.Weather = Pregame.RollWeather(_f, ref _rng);
+            if (setup.RollBullpen) Pregame.RollBullpen(BullpenNames.Length, ref _rng, _s.BullpenList);
+            else _s.BullpenList.AddRange(setup.Bullpen);
 
             int innings = _t.game.innings;
             _s.LineOpp = new int[innings];
@@ -84,26 +90,6 @@ namespace BBGame.Core
         public void Start()
         {
             if (_s.Phase != MatchPhase.NotStarted) return;
-            _s.Phase = MatchPhase.Pitching;
-            StartAtBat();
-        }
-
-        /// <summary>
-        /// [M1 임시] 반 이닝이 끝났을 때 다음 이닝 초로 넘긴다. 우리 공격은 0점.
-        /// M3에서 이 자리에 3택1·우리 공격·승패가 들어간다.
-        /// </summary>
-        public void AdvanceHalfInning()
-        {
-            if (_s.Phase != MatchPhase.HalfInningOver) return;
-            _s.LineUs[_s.Inning - 1] = 0;
-            if (_s.Inning >= _t.game.innings) { _s.Phase = MatchPhase.Ended; return; }
-            _s.Inning++;
-            _s.Outs = 0;
-            ClearBases();
-            _s.LineOpp[_s.Inning - 1] = 0;
-            _s.InningRuns = 0;
-            _s.HitStreak = 0;
-            _s.WalkStreak = 0;
             _s.Phase = MatchPhase.Pitching;
             StartAtBat();
         }
@@ -194,6 +180,9 @@ namespace BBGame.Core
         // ───────────────────────── 도우미 ─────────────────────────
 
         private int Lv(BonusId id) => _s.Modifiers.Level(id);
+        /// <summary>불펜 이름 표 (BonusTable이 없으면 3명 자리만)</summary>
+        private string[] BullpenNames => _db.BonusTable != null && _db.BonusTable.Bullpen.Length > 0 ? _db.BonusTable.Bullpen : s_defaultPen;
+        private static readonly string[] s_defaultPen = { "", "", "" };
         private bool IsRisp() => _s.Bases[1].On || _s.Bases[2].On;
         private bool BasesEmpty() => !_s.Bases[0].On && !_s.Bases[1].On && !_s.Bases[2].On;
         private BaseMask Mask() => new BaseMask(_s.Bases[0].On, _s.Bases[1].On, _s.Bases[2].On);

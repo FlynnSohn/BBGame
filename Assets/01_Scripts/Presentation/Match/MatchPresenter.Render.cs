@@ -51,7 +51,7 @@ namespace BBGame.Presentation.Match
         {
             var sb = _v.scoreboard;
             sb.SetTeams(Loc.Get(_cat.SchoolName(_setup.Opponent.Id)), Loc.Get(_cat.SchoolName(HomeSchoolId)));
-            sb.SetLine(S, _engine.Phase == MatchPhase.Ended, _pal);
+            sb.SetLine(S, _pal);
             sb.SetCount(balls, strikes, outs, bases, _pal);
         }
 
@@ -79,6 +79,30 @@ namespace BBGame.Presentation.Match
                 bool good = c == Condition.Feel || c == Condition.Live || c == Condition.Clear;
                 today.Add(Loc.Get(_cat.ConditionName(c)), _pal.panelBorder, good ? _pal.readText : _pal.intentText);
             }
+            // 오늘의 불펜 — 상태별 인원 (§12-3, 경기 전 화면이 생기기 전까지 여기서)
+            var pen = S.Bullpen;
+            if (pen.Count > 0)
+            {
+                string sep = Loc.Get(Ui.listSeparator);
+                _sb.Clear();
+                for (var st = BullpenState.Good; st <= BullpenState.Bad; st++)
+                {
+                    int n = 0;
+                    for (int i = 0; i < pen.Count; i++) if (pen[i] == st) n++;
+                    if (n == 0) continue;
+                    if (_sb.Length > 0) _sb.Append(sep);
+                    _sb.Append(_args.Clear().Set("state", Loc.Get(_cat.BullpenStateName(st))).Set("n", n).Format(Ui.bullpenCount));
+                }
+                today.Add(_args.Clear().Set("summary", _sb.ToString()).Format(Ui.bullpenChip), _pal.panelBorder, _pal.textSub);
+            }
+            // 이닝 보너스 · 진화 (§13) — 경기 내내 쌓인다
+            for (var b = BonusId.Heavy; b <= BonusId.Bold; b++)
+            {
+                int lv = S.BonusLevel(b);
+                if (lv > 0) today.Add(_args.Clear().Set("name", Loc.Get(_cat.BonusName(b))).Set("lv", lv).Format(Ui.bonusLevelChip), _pal.barTrack, _pal.text);
+            }
+            for (int bit = 1; bit <= (int)Evolution.Iron; bit <<= 1)
+                if (((int)S.Evolutions & bit) != 0) today.Add(Loc.Get(_cat.EvolutionName((Evolution)bit)), _pal.gold, _pal.text);
             today.End();
         }
 

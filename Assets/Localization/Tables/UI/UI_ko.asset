@@ -405,6 +405,88 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 7751032784689562265
+  - m_Id: 9910071
+    m_Localized: "\uC2B9\uB9AC"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562500
+  - m_Id: 9910072
+    m_Localized: "\uD328\uBC30"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562501
+  - m_Id: 9910073
+    m_Localized: "\uBB34\uC2B9\uBD80"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562502
+  - m_Id: 9910074
+    m_Localized: "\uC774\uB2DD \uBCF4\uB108\uC2A4 \u2014 \uD558\uB098\uB97C \uACE0\uB978\uB2E4"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562503
+  - m_Id: 9910075
+    m_Localized: "Lv {from} \u2192 {to}"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562504
+  - m_Id: 9910076
+    m_Localized: "\uC9C4\uD654"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562505
+  - m_Id: 9910077
+    m_Localized: "{inning}\uD68C\uB9D0"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562506
+  - m_Id: 9910078
+    m_Localized: "\uACB0\uACFC \uBCF4\uAE30"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562507
+  - m_Id: 9910079
+    m_Localized: "\uBD88\uD39C {summary}"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562508
+  - m_Id: 9910080
+    m_Localized: '{state} {n}'
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562509
+  - m_Id: 9910081
+    m_Localized: '{name} Lv{lv}'
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562510
+  - m_Id: 9910082
+    m_Localized: "{ip}\uC774\uB2DD \xB7 {pitches}\uAD6C \xB7 \uD53C\uC548\uD0C0 {h}
+      \xB7 \uC2E4\uC810 {r} (\uC790\uCC45 {er}) \xB7 \uC0BC\uC9C4 {k} \xB7 4\uC0AC\uAD6C
+      {bb}"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562511
+  - m_Id: 9910083
+    m_Localized: "\uAD6C\uC6D0 {name} (\uC624\uB298 {state}) \u2014 {runs}\uC810
+      \uD5C8\uC6A9"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562512
+  - m_Id: 9910084
+    m_Localized: "\uAD6C\uC6D0 {name} (\uC624\uB298 {state}) \u2014 \uB0A8\uC740
+      \uC544\uC6C3\uC744 \uC7A1\uC558\uB2E4"
+    m_Metadata:
+      m_Items:
+      - rid: 7751032784689562195
+      - rid: 7751032784689562513
   references:
     version: 2
     RefIds:
@@ -437,6 +519,14 @@ MonoBehaviour:
         - id: 9910066
         - id: 9910067
         - id: 9910068
+        - id: 9910075
+        - id: 9910077
+        - id: 9910079
+        - id: 9910080
+        - id: 9910081
+        - id: 9910082
+        - id: 9910083
+        - id: 9910084
     - rid: 7751032784689562196
       type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
@@ -785,3 +875,70 @@ MonoBehaviour:
       data:
         m_CommentText: "\uAC15\uD310 \uC548\uB0B4 \u2014 \uAD50\uCCB4 \uC2E0\uD638
           (M5)"
+    - rid: 7751032784689562500
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uACBD\uAE30 \uACB0\uACFC \uCC3D \uC81C\uBAA9"
+    - rid: 7751032784689562501
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uACBD\uAE30 \uACB0\uACFC \uCC3D \uC81C\uBAA9"
+    - rid: 7751032784689562502
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uACBD\uAE30 \uACB0\uACFC \uCC3D \uC81C\uBAA9"
+    - rid: 7751032784689562503
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "3\uD0DD1 \uCC3D \uC81C\uBAA9 (\xA713, \uC2DC\uAC04 \uC81C\uD55C
+          \uC5C6\uC74C)"
+    - rid: 7751032784689562504
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "3\uD0DD1 \uCE74\uB4DC \u2014 \uC9C0\uAE08 \uB808\uBCA8 \u2192
+          \uACE0\uB978 \uB4A4 \uB808\uBCA8"
+    - rid: 7751032784689562505
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "3\uD0DD1 \uCE74\uB4DC \u2014 \uC9C4\uD654 \uD45C\uC2DC"
+    - rid: 7751032784689562506
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uC6B0\uB9AC \uACF5\uACA9 \uD55C \uC904 \uC548\uB0B4 \uC81C\uBAA9"
+    - rid: 7751032784689562507
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uC548\uB0B4 \uCC3D \uBC84\uD2BC \u2014 \uACBD\uAE30 \uACB0\uACFC
+          \uCC3D\uC73C\uB85C"
+    - rid: 7751032784689562508
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "'\uC624\uB298' \uCE69 \u2014 \uC624\uB298\uC758 \uBD88\uD39C
+          \uC0C1\uD0DC \uC694\uC57D. {summary}\uB294 bullpenCount\uB97C \uBAA9\uB85D
+          \uAD6C\uBD84\uC790\uB85C \uC774\uC740 \uAC83 (\xA712-3)"
+    - rid: 7751032784689562509
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "'\uC624\uB298' \uBD88\uD39C \uCE69 \uC548 \u2014 {state}
+          \uC88B\uC74C/\uBCF4\uD1B5/\uB098\uC068, {n} \uADF8 \uC0C1\uD0DC\uC778 \uD22C\uC218
+          \uC218"
+    - rid: 7751032784689562510
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "'\uC624\uB298' \uCE69 \u2014 \uACE0\uB978 \uC774\uB2DD \uBCF4\uB108\uC2A4\uC640
+          \uB808\uBCA8 (\uC9C4\uD654\uB294 \uC774\uB984\uB9CC)"
+    - rid: 7751032784689562511
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uACB0\uACFC \uCC3D \u2014 \uC624\uB298 \uD22C\uC218 \uAE30\uB85D
+          \uD55C \uC904 (\xA715). {ip}\uB294 5 2/3 \uD615\uC2DD"
+    - rid: 7751032784689562512
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAC15\uD310 \uC548\uB0B4\xB7\uACB0\uACFC \uCC3D \u2014 \uB0A8\uC740
+          \uC544\uC6C3\uC744 \uB9E1\uC740 \uBD88\uD39C\uC774 \uC2E4\uC810"
+    - rid: 7751032784689562513
+      type: {class: Comment, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_CommentText: "\uAC15\uD310 \uC548\uB0B4\xB7\uACB0\uACFC \uCC3D \u2014 \uB0A8\uC740
+          \uC544\uC6C3\uC744 \uB9E1\uC740 \uBD88\uD39C\uC774 \uBB34\uC2E4\uC810"

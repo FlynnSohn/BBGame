@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 7751032784689562179
+    rid: 7751032784689562499
   references:
     version: 2
     RefIds:
@@ -773,7 +773,7 @@ MonoBehaviour:
       data:
         m_CommentText: "\uAC00\uC6B4\uB370 \uBCF4\uACE0 \uB358\uC9C0\uAE30 \uCE74\uB4DC
           \uCF54\uC2A4 \uC904 \u2014 \uCC29\uC9C0 \uD655\uB960 (\uD29C\uB2DD \uAC12)"
-    - rid: 7751032784689562179
+    - rid: 7751032784689562499
       type: {class: SequentialIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_NextAvailableId: 9950076

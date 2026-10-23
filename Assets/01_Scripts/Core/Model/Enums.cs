@@ -85,13 +85,26 @@ namespace BBGame.Core
         NotStarted,
         /// <summary>투구 대기</summary>
         Pitching,
-        /// <summary>아웃 3개 — 반 이닝 종료 (M1: AdvanceHalfInning 대기, M3: 3택1·우리 공격)</summary>
-        HalfInningOver,
-        /// <summary>강판 — 스태미나 0 · 투구 수 한도 · 벤치 판단 (M3에서 불펜 처리)</summary>
-        PitcherExited,
-        /// <summary>경기 끝</summary>
+        /// <summary>아웃 3개 — 이닝 보너스 3택1 대기 (§13). ChooseBonus가 우리 공격·다음 이닝까지 진행한다</summary>
+        BonusPick,
+        /// <summary>경기 끝 — 9회 · 강판 뒤 불펜이 남은 이닝을 끝냈다 (ExitReason으로 구분)</summary>
         Ended
     }
+
+    /// <summary>오늘의 불펜 상태 (§12-3)</summary>
+    public enum BullpenState : byte { Good, Mid, Bad }
+
+    /// <summary>이닝 보너스 후보 종류</summary>
+    public enum OfferKind : byte { Bonus, Evolution }
+
+    /// <summary>경기 결과 (우리 팀 기준). 무승부는 연장 없이 (§14)</summary>
+    public enum MatchResult : byte { None, Win, Loss, Tie }
+
+    /// <summary>보너스·진화가 쓰는 단계 기능 — 그 단계에 없으면 후보에서 뺀다 (§13, 프로토타입 BONUS_NEED·EVO_NEED)</summary>
+    public enum FeatureNeed : byte { None, Sign, Focus, Clues, Declare }
+
+    /// <summary>그 반 이닝(회초)을 마친 투수 — 실점 장부의 우리 득점 책임 (§23-2)</summary>
+    public enum PitcherOfRecord : byte { Me, Bullpen, Starter }
 
     /// <summary>강판 이유</summary>
     public enum ExitReason : byte { None, Stamina, PitchLimit, Bench, Request }

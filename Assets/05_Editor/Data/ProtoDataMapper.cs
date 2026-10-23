@@ -131,6 +131,24 @@ namespace BBGame.EditorTools.Data
                 stages[i] = a;
             }
             db.Stages = stages;
+
+            // 이닝 보너스 표 (M3)
+            if (d.bonusTable != null)
+            {
+                var bt = src.Get<BonusTable>("BonusTable");
+                bt.Bonuses = d.bonusTable.bonuses.ConvertAll(b => new BonusRow
+                {
+                    id = Parse<BonusId>(b.id), maxLevel = b.maxLevel, need = Parse<FeatureNeed>(b.need), perLevel = b.perLevel
+                }).ToArray();
+                bt.Evolutions = d.bonusTable.evolutions.ConvertAll(e => new EvolutionRow
+                {
+                    evolution = Parse<Evolution>(e.evolution), first = Parse<BonusId>(e.first), firstLevel = e.firstLevel,
+                    second = Parse<BonusId>(e.second), secondLevel = e.secondLevel, need = Parse<FeatureNeed>(e.need)
+                }).ToArray();
+                bt.OurBatters = d.bonusTable.ourBatters.ToArray();
+                bt.Bullpen = d.bonusTable.bullpen.ToArray();
+                db.BonusTable = bt;
+            }
             return db;
         }
 

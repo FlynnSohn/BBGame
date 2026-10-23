@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 7751032784689562434
+    rid: 7751032784689562514
   references:
     version: 2
     RefIds:
@@ -156,7 +156,7 @@ MonoBehaviour:
       data:
         m_CommentText: "'\uC624\uB298' \uCE69 \u2014 \uC5F0\uC2B5 \uACBD\uAE30 \uD310\uC815
           \uBC29\uC2DD"
-    - rid: 7751032784689562434
+    - rid: 7751032784689562514
       type: {class: SequentialIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_NextAvailableId: 9980015

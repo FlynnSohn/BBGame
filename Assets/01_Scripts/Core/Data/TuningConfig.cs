@@ -26,6 +26,8 @@ namespace BBGame.Core
         public ScoutTuning scout = new ScoutTuning();
         public GameTuning game = new GameTuning();
         public RestTuning rest = new RestTuning();
+        public OffenseTuning offense = new OffenseTuning();
+        public PenTuning pen = new PenTuning();
     }
 
     /// <summary>목표치 (§11-1)</summary>
@@ -188,5 +190,28 @@ namespace BBGame.Core
         public int[] maxPitches = { 30, 45, 60, 75 };
         [Tooltip("휴식 구간 경계·투구 수 한도 몇 구 전부터 경고하나")]
         public int warnBefore = 5;
+    }
+
+    /// <summary>
+    /// 반 이닝 결과 시뮬레이션 — 우리 공격·불펜 이닝 (§14 [임시 수치]).
+    /// 무득점 확률 = clamp(zeroBase − (공격력 − 수비력) × zeroSlope, zeroMin, zeroMax), 득점이면 점수 분포
+    /// </summary>
+    [Serializable]
+    public sealed class OffenseTuning
+    {
+        [Tooltip("우리 공격력 (육성으로 보강 예정)")] public double teamOff = 50;
+        [Tooltip("상대 투수 수비력 · 상대 공격력 (프로토타입 코드 안 상수 50)")] public double oppTeam = 50;
+        public double zeroBase = 0.70, zeroSlope = 0.006, zeroMin = 0.45, zeroMax = 0.88;
+        [Tooltip("득점 분포 누적 경계 — r < [0] 1점 · < [1] 2점 · < [2] 3점 · < [3] 4점 · 그 밖 5점 (55·25·12·5·3%)")]
+        public double[] runCumulative = { 0.55, 0.8, 0.92, 0.97 };
+    }
+
+    /// <summary>오늘의 불펜 (§12-3, §14)</summary>
+    [Serializable]
+    public sealed class PenTuning
+    {
+        [Tooltip("상태별 수비력 — 좋음 · 보통 · 나쁨")] public double good = 55, mid = 47, bad = 40;
+        [Tooltip("불펜 목록이 없을 때 (테스트·M1 기록)")] public double unknown = 45;
+        [Tooltip("이닝마다 수비력 감소")] public double decayPerInning = 3;
     }
 }

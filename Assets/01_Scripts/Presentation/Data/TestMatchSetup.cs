@@ -5,7 +5,7 @@ namespace BBGame.Presentation.Data
 {
     /// <summary>
     /// 테스트 진입 설정 — 경기 전 화면(M8)이 생기기 전까지 Play를 누르면 이 값으로 경기를 연다 (match_m2_screen_plan 범위 8).
-    /// 날씨·컨디션·보너스는 M3에서 굴린다 (지금은 없음)
+    /// 날씨·컨디션·불펜은 엔진이 굴린다 (끄면 없음)
     /// </summary>
     [CreateAssetMenu(menuName = "BBGame/Presentation/Test Match Setup")]
     public sealed class TestMatchSetup : ScriptableObject
@@ -19,6 +19,17 @@ namespace BBGame.Presentation.Data
         [SerializeField] internal uint _seed;
         [Tooltip("육성 값 staR — 스태미나 최대 = 기본 + staR")]
         [SerializeField] internal int _staR = 10;
+        [Header("경기 단위 변동 (§12)")]
+        [Tooltip("날씨·컨디션·불펜 상태를 굴린다 (경기 전 화면 M8이 생기기 전까지 여기서)")]
+        [SerializeField] internal bool _rollModifiers = true;
+        [Header("개발용 (에디터·개발 빌드에서만)")]
+        [Tooltip("자동 진행 — 손패에서 카드를 골라 던지고, [다음]·보너스 첫 칸·안내를 스스로 누른다. 결과 창에서 멈춘다")]
+        [SerializeField] internal bool _autoPlay;
+        [Tooltip("자동 진행 한 단계 간격 (초)")]
+        [SerializeField, Range(0.02f, 2f)] internal float _autoPlayDelay = 0.25f;
+
+        public bool AutoPlay => _autoPlay;
+        public float AutoPlayDelay => _autoPlayDelay;
 
         public GameDatabase Database => _database;
 
@@ -34,6 +45,9 @@ namespace BBGame.Presentation.Data
                 StaR = _staR,
                 Seed = seedUsed,
                 IsPracticeGame = school != null && school.IsPractice,
+                RollConditions = _rollModifiers,
+                RollWeather = _rollModifiers,
+                RollBullpen = _rollModifiers,
             };
             foreach (var card in _database.StarterDeck) setup.Deck.Add(new DeckEntry(card));
             return setup;

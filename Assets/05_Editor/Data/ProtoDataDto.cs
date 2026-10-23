@@ -18,6 +18,28 @@ namespace BBGame.EditorTools.Data
         public JObject tuning;
         /// <summary>StageFeatures 필드 값 — 키는 C# 필드 이름과 같다</summary>
         public List<JObject> stages;
+        /// <summary>이닝 보너스·진화 표, 우리 타자·불펜 이름 (M3)</summary>
+        public BonusTableDto bonusTable;
+    }
+
+    public sealed class BonusTableDto
+    {
+        public List<BonusRowDto> bonuses;
+        public List<EvolutionRowDto> evolutions;
+        public List<string> ourBatters, bullpen;
+    }
+
+    public sealed class BonusRowDto
+    {
+        public string id, need;
+        public int maxLevel;
+        public double perLevel;
+    }
+
+    public sealed class EvolutionRowDto
+    {
+        public string evolution, first, second, need;
+        public int firstLevel, secondLevel;
     }
 
     public sealed class PitchTypeDto

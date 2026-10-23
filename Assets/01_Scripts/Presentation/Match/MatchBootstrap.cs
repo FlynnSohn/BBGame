@@ -27,6 +27,8 @@ namespace BBGame.Presentation.Match
         public ThrowButtonView throwButton;
         public SimpleRevealView reveal;
         public MatchBannerView banner;
+        public BonusPickView bonus;
+        public MatchResultView result;
     }
 
     /// <summary>
@@ -48,6 +50,8 @@ namespace BBGame.Presentation.Match
             // 첫 화면이 그려지기 전에 리빌·안내·고스트를 닫아 둔다
             _views.reveal.Hide();
             _views.banner.gameObject.SetActive(false);
+            if (_views.bonus != null) _views.bonus.gameObject.SetActive(false);
+            if (_views.result != null) _views.result.gameObject.SetActive(false);
         }
 
         private async UniTaskVoid Start()
@@ -55,6 +59,7 @@ namespace BBGame.Presentation.Match
             var ct = destroyCancellationToken;
             var init = LocalizationSettings.InitializationOperation;
             while (!init.IsDone) await UniTask.Yield(ct);
+            KoreanJosaFormatter.Register();   // 중계 문구의 조사 {n:josa(이|가)}
 
             var db = _setup.Database;
             var setup = _setup.Build(out uint seed);
@@ -63,6 +68,9 @@ namespace BBGame.Presentation.Match
             var engine = new MatchEngine(db, setup);
             _presenter = new MatchPresenter(engine, db, setup, _catalog, _palette, _views, _input, Restart);
             _presenter.Start(ct);
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            if (_setup.AutoPlay) _presenter.RunAutoPlayAsync(_setup.AutoPlayDelay, ct).Forget();
+#endif
         }
 
         private void OnDestroy() => _presenter?.Dispose();

@@ -121,7 +121,22 @@ namespace BBGame.Core
         internal int HitStreak, WalkStreak;
         internal int BenchVisitInning = -1, BenchVisitRuns;
         public ExitReason ExitReason { get; internal set; }
+        /// <summary>강판한 이닝·그때 아웃 수 (투구 이닝 계산)</summary>
+        public int ExitInning { get; internal set; }
+        public int ExitOuts { get; internal set; }
+        /// <summary>강판 때 남긴 주자 중 들어온 수 (주인공 실점에 들어갔다)</summary>
+        public int InheritedScored { get; internal set; }
+        public int Strikeouts { get; internal set; }
+        /// <summary>4사구 (볼넷 + 몸에 맞는 공)</summary>
+        public int Walks { get; internal set; }
+        public MatchResult Result { get; internal set; }
+        /// <summary>강판 뒤 올라간 불펜 (BonusTable.Bullpen 번호, 없으면 −1)</summary>
+        public int RelieverIndex { get; internal set; } = -1;
         internal readonly AtBatState AtBat = new AtBatState();
+        internal readonly List<BonusOffer> OffersList = new List<BonusOffer>(3);
+        internal readonly List<HalfInningRecord> HalfLogList = new List<HalfInningRecord>(20);
+        internal readonly List<LedgerEntry> LedgerList = new List<LedgerEntry>(24);
+        internal readonly List<BullpenState> BullpenList = new List<BullpenState>(3);
         internal MatchModifiers Modifiers;
 
         // ── IMatchReadOnly ──
@@ -144,6 +159,25 @@ namespace BBGame.Core
         public Condition Conditions => Modifiers.Conditions;
         public int BonusLevel(BonusId id) => Modifiers.Level(id);
         public Evolution Evolutions => Modifiers.Evolutions;
+        public IReadOnlyList<BonusOffer> Offers => OffersList;
+        public IReadOnlyList<HalfInningRecord> HalfLog => HalfLogList;
+        public IReadOnlyList<LedgerEntry> Ledger => LedgerList;
+        public IReadOnlyList<BullpenState> Bullpen => BullpenList;
+        /// <summary>우리 팀 라인스코어 칸이 X(9회말 공격 없음)인가</summary>
+        public bool IsLineUsX(int inningIndex) => LineUs[inningIndex] < 0;
+        /// <summary>그 이닝 말 공격을 했는가 (화면 — 아직 안 한 칸은 비운다)</summary>
+        public bool HasLineUs(int inningIndex) => inningIndex < LineUsPlayed;
+        internal int LineUsPlayed;
+
+        public PitcherLine Line
+        {
+            get
+            {
+                int outs = ExitReason != ExitReason.None ? (ExitInning - 1) * 3 + ExitOuts
+                    : Phase == MatchPhase.Ended ? LineOpp.Length * 3 : (Inning - 1) * 3 + Outs;
+                return new PitcherLine(outs, Pitches, HitsOpp, RunsAllowed, EarnedRuns, Strikeouts, Walks);
+            }
+        }
     }
 
     /// <summary>화면이 읽는 경기 상태 — 고칠 수 없다. 타자의 이번 공 노림은 리빌 전에는 노출하지 않는다 (§20-4)</summary>
@@ -185,5 +219,24 @@ namespace BBGame.Core
         Condition Conditions { get; }
         int BonusLevel(BonusId id);
         Evolution Evolutions { get; }
+        /// <summary>이닝 보너스 후보 (BonusPick 단계에서만 채워진다)</summary>
+        IReadOnlyList<BonusOffer> Offers { get; }
+        /// <summary>결과만 계산한 반 이닝 (우리 공격·불펜) — 순서대로</summary>
+        IReadOnlyList<HalfInningRecord> HalfLog { get; }
+        /// <summary>실점 장부 (§23-2)</summary>
+        IReadOnlyList<LedgerEntry> Ledger { get; }
+        /// <summary>오늘의 불펜 상태 (비어 있을 수 있다)</summary>
+        IReadOnlyList<BullpenState> Bullpen { get; }
+        int RelieverIndex { get; }
+        int InheritedScored { get; }
+        int ExitInning { get; }
+        int ExitOuts { get; }
+        int Strikeouts { get; }
+        int Walks { get; }
+        bool IsLineUsX(int inningIndex);
+        bool HasLineUs(int inningIndex);
+        MatchResult Result { get; }
+        /// <summary>오늘 투수 기록 한 줄</summary>
+        PitcherLine Line { get; }
     }
 }
