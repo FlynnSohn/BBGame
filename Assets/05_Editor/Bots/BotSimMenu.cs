@@ -26,7 +26,7 @@ namespace BBGame.EditorTools.Bots
             var bots = new Bot[] { new RandomBot(db), new BlindBot(db), new OracleBot(db) };
             var sb = new StringBuilder(1024);
             sb.Append("[Sim] 0단계 봇 ").Append(Games).Append("경기 · 시드 ").Append(SeedFrom).Append("~").Append(SeedFrom + Games - 1)
-              .Append(" · 기준선(§19-3) 무작위 12.07 · 뒤집지 않음 3.63 · 정답 봇 1.25").AppendLine();
+              .Append(" · 기준선 무작위 12.07 · 뒤집지 않음 3.63 (§19-3) · 정답 봇 0.72 (decisions 2026-11-05)").AppendLine();
             var clock = Stopwatch.StartNew();
             try
             {

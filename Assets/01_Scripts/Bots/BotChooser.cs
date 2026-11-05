@@ -14,13 +14,13 @@ namespace BBGame.Bots
             public int Hand;
             public ZoneId? Zone;    // 전력투구는 null (프로토타입 "zone9")
             public bool Fastball;
-            public double Value;
         }
 
         private readonly GameDatabase _db;
         private readonly BotTuning _bt;
         private readonly double _ballKeep;
         private readonly double _zoneAmp;
+        private readonly double _powerCenter, _powerNear;
         private Option[] _opts = new Option[64];
         private int _count;
 
@@ -30,6 +30,8 @@ namespace BBGame.Bots
             _bt = db.Tuning.bot;
             _ballKeep = db.Tuning.read.ballKeep;
             _zoneAmp = db.Tuning.inPlay.zoneAmp;
+            _powerCenter = db.Tuning.control.powerCenter;
+            _powerNear = db.Tuning.control.powerNear;
         }
 
         /// <summary>선택지 수 (마지막 Fill 기준) — 테스트용</summary>
@@ -52,9 +54,16 @@ namespace BBGame.Bots
             Fill(e);
             var s = e.State;
             var b = s.CurrentBatter.Def;
-            for (int k = 0; k < _count; k++) _opts[k].Value = Score(e, s, target, in _opts[k], zoneMap ? b.ZoneHit : null);
-            SortLikeV8(_opts, _count);
-            var o0 = _opts[0];
+            var zoneHit = zoneMap ? b.ZoneHit : null;
+            // 프로토타입은 안정 정렬 뒤 첫 번째를 쓴다 = "처음 나온 최댓값" (점수에 NaN이 없으므로 정렬 없이 한 번 훑는다)
+            int best = 0;
+            double bestV = double.NegativeInfinity;
+            for (int k = 0; k < _count; k++)
+            {
+                double v = Score(e, s, target, in _opts[k], zoneHit);
+                if (v > bestV) { bestV = v; best = k; }
+            }
+            var o0 = _opts[best];
             return new ThrowCommand(o0.Hand, o0.Zone);
         }
 
@@ -67,9 +76,10 @@ namespace BBGame.Bots
             double v = e.BotPreviewBase(o.Hand, o.Zone) * (j == Stab.Counter ? _bt.counterW : j == Stab.Neutral ? 1 : _bt.badW);
             if (zoneHit != null)
             {
-                // 뜨거운 존은 피한다. 전력투구는 프로토타입에서 칸 "zone9"가 존 표에 없어 점수가 NaN이 된다 —
-                // 정렬에서 아무것과도 "같음"이 되어 자리가 정렬 구현에 달린다. 기준선(§19-3)이 이 동작으로 재졌으므로 그대로 따른다 (M9 결과 메모)
-                v /= o.Zone.HasValue ? 1 + (zoneHit[(int)o.Zone.Value] - 1) * _zoneAmp : double.NaN;
+                // 뜨거운 존은 피한다. 전력투구는 칸이 던질 때 정해지므로 떨어질 칸 확률로 핫/콜드 기댓값을 쓴다
+                // (2026-11-05 수정 — 프로토타입은 여기서 NaN이 되어 정답 봇이 전력투구를 던지지 않았다. decisions 기록)
+                double hit = o.Zone.HasValue ? zoneHit[(int)o.Zone.Value] : PowerLandingHit(zoneHit);
+                v /= 1 + (hit - 1) * _zoneAmp;
             }
             if (z.Outside && target != Intent.Contact)
             {
@@ -102,63 +112,17 @@ namespace BBGame.Bots
             if (_count == _opts.Length) Array.Resize(ref _opts, _opts.Length * 2);   // 거의 일어나지 않는다 (손패 8장 × 칸 몇 개)
             _opts[_count++] = new Option { Hand = hand, Zone = zone, Fastball = fast };
         }
-        // ───────────────────────── 정렬 — 프로토타입(브라우저 V8)과 같은 순서 ─────────────────────────
-
-        // 프로토타입 비교 함수 (a, b) => b.v − a.v. 결과가 NaN이면 JS 명세(SortCompare)대로 0 — "같음"
-        private static double Compare(in Option a, in Option b)
-        {
-            double d = b.Value - a.Value;
-            return double.IsNaN(d) ? 0 : d;
-        }
 
         /// <summary>
-        /// V8 Array.prototype.sort (TimSort)의 짧은 배열 경로를 그대로 옮긴다 — 64개 미만이면 첫 런 만들기 + 이진 삽입 정렬뿐이다.
-        /// 점수에 NaN이 섞이면(정답 봇의 전력투구) 결과가 이 구현 순서에 달려서, 일반 정렬로는 프로토타입과 같아지지 않는다
+        /// 전력투구가 떨어질 칸의 핫/콜드 기댓값 — Landing.PowerLanding과 같은 확률
+        /// (한가운데 powerCenter · 옆 4칸이 나머지 powerNear까지 나눠 갖고 · 모서리 4칸이 그 나머지).
+        /// 덧셈 순서는 비교 기록을 만든 내보내기 도구와 같다
         /// </summary>
-        private static void SortLikeV8(Option[] a, int n)
+        private double PowerLandingHit(double[] h)
         {
-            if (n < 2) return;
-            if (n >= 64) throw new NotSupportedException("선택지가 64개 이상 — 병합 단계는 옮기지 않았다");
-            int run = CountAndMakeRun(a, 0, n);
-            if (run < n) BinaryInsertionSort(a, 0, run, n);
-        }
-
-        private static int CountAndMakeRun(Option[] a, int lowArg, int high)
-        {
-            int low = lowArg + 1;
-            if (low == high) return 1;
-            int runLength = 2;
-            double order = Compare(in a[low], in a[low - 1]);
-            bool descending = order < 0;
-            int prev = low;
-            for (int i = low + 1; i < high; i++)
-            {
-                order = Compare(in a[i], in a[prev]);
-                if (descending) { if (order >= 0) break; }
-                else { if (order < 0) break; }
-                prev = i;
-                runLength++;
-            }
-            if (descending) Array.Reverse(a, lowArg, runLength);
-            return runLength;
-        }
-
-        private static void BinaryInsertionSort(Option[] a, int low, int startArg, int high)
-        {
-            int start = low == startArg ? startArg + 1 : startArg;
-            for (; start < high; start++)
-            {
-                int left = low, right = start;
-                var pivot = a[start];
-                while (left < right)
-                {
-                    int mid = left + ((right - left) >> 1);
-                    if (Compare(in pivot, in a[mid]) < 0) right = mid;
-                    else left = mid + 1;
-                }
-                for (int p = start; p > left; p--) a[p] = a[p - 1];
-                a[left] = pivot;
-            }
+            double near = h[(int)ZoneId.InMid] + h[(int)ZoneId.OutMid] + h[(int)ZoneId.MidHi] + h[(int)ZoneId.MidLo];
+            double corner = h[(int)ZoneId.InHi] + h[(int)ZoneId.OutHi] + h[(int)ZoneId.InLo] + h[(int)ZoneId.OutLo];
+            return _powerCenter * h[(int)ZoneId.MidMid] + (_powerNear - _powerCenter) / 4 * near + (1 - _powerNear) / 4 * corner;
         }
     }
 }
