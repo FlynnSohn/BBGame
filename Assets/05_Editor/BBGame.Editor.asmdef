@@ -3,6 +3,7 @@
     "rootNamespace": "BBGame.EditorTools",
     "references": [
         "BBGame.Core",
+        "BBGame.Bots",
         "BBGame.Presentation",
         "Unity.Localization",
         "Unity.Localization.Editor",

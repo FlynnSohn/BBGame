@@ -28,6 +28,7 @@ namespace BBGame.Core
         public RestTuning rest = new RestTuning();
         public OffenseTuning offense = new OffenseTuning();
         public PenTuning pen = new PenTuning();
+        public BotTuning bot = new BotTuning();
     }
 
     /// <summary>목표치 (§11-1)</summary>
@@ -213,5 +214,22 @@ namespace BBGame.Core
         [Tooltip("상태별 수비력 — 좋음 · 보통 · 나쁨")] public double good = 55, mid = 47, bad = 40;
         [Tooltip("불펜 목록이 없을 때 (테스트·M1 기록)")] public double unknown = 45;
         [Tooltip("이닝마다 수비력 감소")] public double decayPerInning = 3;
+    }
+
+    /// <summary>
+    /// 수치 검토 봇 (§19-3, match_m9_bots_plan B4) — 게임 규칙이 아니라 봇의 고르기 버릇이다.
+    /// 문턱 둘은 프로토타입 CFG(botFlipTh · botDeclTh, 1단계부터), 나머지는 botChoose 코드 안 상수
+    /// </summary>
+    [Serializable]
+    public sealed class BotTuning
+    {
+        [Tooltip("1위 노림 확률이 이만큼 될 때까지 뒤집는다 (1단계~)")] public double flipTh = 0.7;
+        [Tooltip("1위 노림 확률이 이만큼 넘으면 선언한다 (1단계~)")] public double declTh = 0.45;
+        [Tooltip("찔렀다 칸 점수 배율")] public double counterW = 2.2;
+        [Tooltip("걸렸다 칸 점수 배율 (비켜갔다는 1)")] public double badW = 0.35;
+        [Tooltip("존 밖 공 배율 — 2스트라이크 전")] public double ballFar = 0.55;
+        [Tooltip("존 밖 공 배율 — 2스트라이크")] public double ballFar2S = 0.8;
+        [Tooltip("3볼에서 존 밖 공 배율 (볼넷 위험)")] public double threeBall = 0.4;
+        [Tooltip("게이지가 목표치에 닿은 2스트라이크에서 존 밖 공 배율")] public double reachedBall = 0.6;
     }
 }

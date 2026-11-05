@@ -69,15 +69,15 @@ namespace BBGame.Presentation.Match
         {
             var today = _v.today;
             today.Begin();
-            today.Add(Loc.Get(_setup.IsPracticeGame ? Ui.umpireHuman : Ui.umpireAbs), _pal.panelBorder, _pal.text);
-            if (S.Weather != Weather.None) today.Add(Loc.Get(_cat.WeatherName(S.Weather)), _pal.panelBorder, _pal.warnText);
+            today.Add(Loc.Get(_setup.IsPracticeGame ? Ui.umpireHuman : Ui.umpireAbs), _pal.chip, _pal.chipText);
+            if (S.Weather != Weather.None) today.Add(Loc.Get(_cat.WeatherName(S.Weather)), _pal.chip, _pal.warnText);
             int bits = (int)S.Conditions;
             for (int bit = 1; bit <= bits; bit <<= 1)
             {
                 if ((bits & bit) == 0) continue;
                 var c = (Condition)bit;
                 bool good = c == Condition.Feel || c == Condition.Live || c == Condition.Clear;
-                today.Add(Loc.Get(_cat.ConditionName(c)), _pal.panelBorder, good ? _pal.readText : _pal.intentText);
+                today.Add(Loc.Get(_cat.ConditionName(c)), _pal.chip, good ? _pal.readText : _pal.intentText);
             }
             // 오늘의 불펜 — 상태별 인원 (§12-3, 경기 전 화면이 생기기 전까지 여기서)
             var pen = S.Bullpen;
@@ -93,7 +93,7 @@ namespace BBGame.Presentation.Match
                     if (_sb.Length > 0) _sb.Append(sep);
                     _sb.Append(_args.Clear().Set("state", Loc.Get(_cat.BullpenStateName(st))).Set("n", n).Format(Ui.bullpenCount));
                 }
-                today.Add(_args.Clear().Set("summary", _sb.ToString()).Format(Ui.bullpenChip), _pal.panelBorder, _pal.textSub);
+                today.Add(_args.Clear().Set("summary", _sb.ToString()).Format(Ui.bullpenChip), _pal.chip, _pal.chipText);
             }
             // 이닝 보너스 · 진화 (§13) — 경기 내내 쌓인다
             for (var b = BonusId.Heavy; b <= BonusId.Bold; b++)

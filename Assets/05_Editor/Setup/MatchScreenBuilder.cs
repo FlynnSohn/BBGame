@@ -39,16 +39,17 @@ namespace BBGame.EditorTools.Setup
         private const string k_BoldFont = "Assets/03_Asset/Fonts/Pretendard/Pretendard-Bold SDF.asset";
         private const string k_SetupPath = "Assets/04_Data/Presentation/TestMatchSetup.asset";
         private const string k_DatabasePath = "Assets/04_Data/Database.asset";
-        private const string k_FieldArt = "Assets/04_Data/Art/field_base.png";
-        private const string k_BatterArt = "Assets/04_Data/Art/batter_right.png";
+        private const string k_FieldArt = "Assets/04_Data/Art/background_2.png";   // 2026-11-05 교체 (예전 field_base.png)
+        private const string k_BatterArt = "Assets/04_Data/Art/batter_2.png";      // 2026-11-05 교체 — 배경이 투명한 그림 (예전 batter_right.png)
         private const string k_Actions = "Assets/InputSystem_Actions.inputactions";
         private const string k_Mark = "[M2] ";
 
         // 레퍼런스 해상도 (decisions: 1920×1080, 높이 기준)
         private const float W = 1920f, H = 1080f;
-        // 필드 그림 속 타자 자리 (배경 1920×1080 기준 픽셀) — 좌타자는 존 가운데(x 1151)를 기준으로 좌우 대칭
-        private static readonly Rect k_RightBatter = new Rect(1221, 110, 353, 768);
-        private static readonly Rect k_LeftBatter = new Rect(728, 110, 353, 768);
+        // 필드 그림 속 타자 자리 (배경 1920×1080 기준 픽셀) — 좌타자는 존 가운데(x 1151)를 기준으로 좌우 대칭.
+        // batter_2(1024×1536, 투명 배경)를 예전 그림과 같은 발 위치(x 1411 · 바닥 y 850)·몸 높이(700)로 맞췄다
+        private static readonly Rect k_RightBatter = new Rect(1089, 141, 478, 718);
+        private static readonly Rect k_LeftBatter = new Rect(735, 141, 478, 718);
 
         /// <summary>앵커 묶음 — 레퍼런스 좌표를 그대로 넣고, 화면비가 바뀌면 이 앵커 기준으로 붙는다</summary>
         private enum Anchor { TopLeft, Top, TopRight, Center, Bottom, Stretch }
@@ -58,8 +59,49 @@ namespace BBGame.EditorTools.Setup
         private static Sprite s_round, s_knob, s_frame, s_white;
         private static TMP_FontAsset s_bold;
 
+        // 프리팹을 이미 있어도 다시 만든다 (6-1 메뉴)
+        private static bool s_rebuildPrefabs;
+
         [MenuItem("BBGame/Setup/6. 경기 화면 자리 만들기", false, 6)]
         private static void Build()
+        {
+            if (StopIfPlaying()) return;
+            s_rebuildPrefabs = false;
+            BuildScreen();
+        }
+
+        /// <summary>
+        /// 색·그림을 바꾼 뒤 — 팔레트 에셋을 코드 기본값으로 되돌리고, 경기 화면 프리팹을 모두 다시 만든다(같은 파일·GUID 유지).
+        /// 프리팹을 손으로 고친 것이 있으면 사라진다
+        /// </summary>
+        [MenuItem("BBGame/Setup/6-1. 경기 화면 다시 만들기 (색·그림 반영)", false, 6)]
+        private static void Rebuild()
+        {
+            if (StopIfPlaying()) return;
+            var pal = AssetDatabase.LoadAssetAtPath<UiPalette>(k_PalettePath);
+            if (pal != null)
+            {
+                var fresh = ScriptableObject.CreateInstance<UiPalette>();
+                EditorUtility.CopySerialized(fresh, pal);   // 이름(m_Name)까지 덮이므로 되돌린다
+                pal.name = Path.GetFileNameWithoutExtension(k_PalettePath);
+                Object.DestroyImmediate(fresh);
+                EditorUtility.SetDirty(pal);
+            }
+            Debug.Log("[M2] 팔레트를 코드 기본값으로 되돌리고 경기 화면 프리팹을 다시 만든다");
+            s_rebuildPrefabs = true;
+            try { BuildScreen(); }
+            finally { s_rebuildPrefabs = false; }
+        }
+
+        /// <summary>Play 중에는 씬·에셋을 다시 만들 수 없다 — 아무것도 바꾸기 전에 멈춘다</summary>
+        private static bool StopIfPlaying()
+        {
+            if (!EditorApplication.isPlayingOrWillChangePlaymode) return false;
+            Debug.LogError("[M2] Play 중이다 — Play를 끄고 다시 실행한다");
+            return true;
+        }
+
+        private static void BuildScreen()
         {
             s_cat = AssetDatabase.LoadAssetAtPath<DisplayCatalog>(StringImporter.CatalogPath);
             if (s_cat == null) { Debug.LogError("[M2] 표시용 데이터가 없다 — 먼저 BBGame/Data/문구 가져오기"); return; }
@@ -79,7 +121,7 @@ namespace BBGame.EditorTools.Setup
             var fieldSprite = PrepareArt(k_FieldArt);
             var batterSprite = PrepareArt(k_BatterArt);
 
-            // 프리팹 — 없을 때만 만든다
+            // 프리팹 — 없을 때만 만든다 (6-1 메뉴는 모두 다시)
             var cardPrefab = EnsurePrefab("Card", BuildCard);
             var prefabs = new Dictionary<string, GameObject>
             {
@@ -246,7 +288,7 @@ namespace BBGame.EditorTools.Setup
         {
             string path = $"{k_PrefabDir}/{name}.prefab";
             var existing = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-            if (existing != null) return existing;
+            if (existing != null && !s_rebuildPrefabs) return existing;   // 다시 만들면 같은 경로에 덮어써 GUID가 유지된다
             var go = build();
             var asset = PrefabUtility.SaveAsPrefabAsset(go, path);
             Object.DestroyImmediate(go);
@@ -884,7 +926,10 @@ namespace BBGame.EditorTools.Setup
             var img = rt.gameObject.AddComponent<Image>();
             img.sprite = s_round;
             img.type = Image.Type.Sliced;
-            img.color = s_pal.accent;
+            img.color = s_pal.button;   // 남색 버튼 + 옅은 파랑 테두리 (reference_2)
+            var outline = rt.gameObject.AddComponent<Outline>();
+            outline.effectColor = s_pal.buttonBorder;
+            outline.effectDistance = new Vector2(2, -2);
             var b = rt.gameObject.AddComponent<Button>();
             b.targetGraphic = img;
             var nav = b.navigation;
