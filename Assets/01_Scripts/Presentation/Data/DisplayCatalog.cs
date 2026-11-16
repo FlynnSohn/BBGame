@@ -201,6 +201,9 @@ namespace BBGame.Presentation.Data
 
         [Header("이닝 보너스 · 우리 공격 · 결과 (M3)")]
         public LocalizedString bonusTitle, bonusLevel, evolutionTag, bottomTitle, seeResult;
+
+        [Header("타이틀 · 씬 이동 (1차 빌드)")]
+        public LocalizedString titleName, titleSub, startButton, quitButton, toTitle;
         public LocalizedString bullpenChip, bullpenCount, bonusLevelChip, pitcherLine, reliefRuns, reliefHold;
 
         [Header("공통")]

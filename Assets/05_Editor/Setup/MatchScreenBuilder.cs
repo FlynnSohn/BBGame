@@ -28,7 +28,7 @@ namespace BBGame.EditorTools.Setup
     /// · 모양은 자리 표시다 — 기본 둥근 스프라이트와 UiPalette 색. 최종 아트는 사용자 UI 작업을 따른다
     /// 순서: 데이터 가져오기 → 문구 가져오기 → 7. 경기 단축키 → 이 메뉴
     /// </summary>
-    public static class MatchScreenBuilder
+    public static partial class MatchScreenBuilder
     {
         private const string k_Scene = "Assets/00_Scenes/Match.unity";
         private const string k_PrefabDir = "Assets/02_Prefab/Match";
@@ -189,6 +189,10 @@ namespace BBGame.EditorTools.Setup
             views.result.gameObject.SetActive(false);
             Record(views.result.gameObject);
             views.field = BuildField(fieldCanvas, fieldSprite, batterSprite);
+
+            // 1차 빌드 — 오른쪽 위 [타이틀로] (경기 도중 나가기, build1_plan). 이름에 표식이 있어 다시 만들 때 지워진다
+            var toTitle = MakeButton((RectTransform)hud, k_Mark + "ToTitle", Anchor.TopRight, 1745, 35, 150, 50, s_cat.Ui.toTitle, 18);
+            toTitle.gameObject.AddComponent<SceneButton>()._action = SceneButton.Action.ToTitle;
 
             // 입력 — PlayerInput(Invoke C# Events) + Match 맵
             var inputGo = new GameObject(k_Mark + "Input", typeof(PlayerInput), typeof(MatchInputRouter));

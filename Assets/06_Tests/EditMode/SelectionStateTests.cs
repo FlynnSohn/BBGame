@@ -67,10 +67,35 @@ namespace BBGame.Tests
             Assert.IsTrue(s.ZoneFirst);
             Assert.IsTrue(s.Fits(1, _hand));
             Assert.IsFalse(s.Fits(0, _hand));
+            Assert.AreEqual(1, s.Card, "그 칸으로 던질 카드가 한 장뿐이면 바로 고른다");
+            s.ClickCard(1, _hand);
+            Assert.IsFalse(s.HasCard);
+            Assert.AreEqual(ZoneId.OOutLo, s.Zone, "코스 먼저로 고른 칸은 카드를 풀어도 남는다");
             s.ClickCard(1, _hand);
             Assert.AreEqual(ZoneId.OOutLo, s.Zone, "고른 칸으로 던질 수 있는 카드면 칸을 유지한다");
-            s.ClickCard(1, _hand);
-            Assert.AreEqual(ZoneId.OOutLo, s.Zone, "코스 먼저로 고른 칸은 카드를 풀어도 남는다");
+        }
+
+        [Test]
+        public void ZoneFirst_SingleCard_AutoSelected_EvenFromOtherCard()
+        {
+            var s = new SelectionState();
+            s.ClickZone(ZoneId.InHi, _hand);
+            Assert.AreEqual(0, s.Card, "InHi로 던질 카드는 0번 한 장뿐");
+            Assert.AreEqual(ZoneId.InHi, s.Zone);
+            Assert.IsTrue(s.ZoneFirst);
+
+            s.ClickZone(ZoneId.OutLo, _hand);   // 0번은 OutLo로 못 간다 → 코스 먼저, 1번 한 장뿐
+            Assert.AreEqual(1, s.Card);
+            Assert.AreEqual(ZoneId.OutLo, s.Zone);
+        }
+
+        [Test]
+        public void ZoneFirst_NoTargetingCard_OrOnlyPowerPitch_SelectsNothing()
+        {
+            var s = new SelectionState();
+            s.ClickZone(ZoneId.InLo, _hand);   // 칸을 고르는 카드 없음 (전력투구만 존 안이면 맞는다 — 세지 않는다)
+            Assert.IsFalse(s.HasCard);
+            Assert.AreEqual(ZoneId.InLo, s.Zone);
         }
 
         [Test]

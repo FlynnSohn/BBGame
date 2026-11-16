@@ -6,7 +6,6 @@ using BBGame.Presentation.Views;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
-using UnityEngine.SceneManagement;
 
 namespace BBGame.Presentation.Match
 {
@@ -75,7 +74,7 @@ namespace BBGame.Presentation.Match
 
         private void OnDestroy() => _presenter?.Dispose();
 
-        /// <summary>[처음부터] — 씬을 다시 연다 (M2 임시)</summary>
-        private static void Restart() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        /// <summary>결과 창 버튼 — 타이틀로 돌아간다 (1차 빌드: 다시 하기·종료는 타이틀에서)</summary>
+        private static void Restart() => SceneFlow.ToTitle();
     }
 }

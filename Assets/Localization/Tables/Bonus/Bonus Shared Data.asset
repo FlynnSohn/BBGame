@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 7751032784689562555
+    rid: 7751032784689562653
   references:
     version: 2
     RefIds:
@@ -432,7 +432,7 @@ MonoBehaviour:
       data:
         m_CommentText: "\uC9C4\uD654 \uC870\uAC74 (iron) \u2014 3\uD0DD1 \uCE74\uB4DC
           \uBCF4\uC870 \uC904"
-    - rid: 7751032784689562555
+    - rid: 7751032784689562653
       type: {class: SequentialIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_NextAvailableId: 9960041

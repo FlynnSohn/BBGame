@@ -14,7 +14,8 @@ namespace BBGame.Presentation.Match
     /// <summary>
     /// 카드·칸 선택 상태 — 프로토타입 v12 bindPlay와 같은 규칙 (match_m2_screen_plan "조작 규칙").
     /// · 카드를 누르면 고른다. 고른 칸으로 그 카드를 못 던지면 카드의 첫 코스로 바꾼다. 같은 카드를 다시 누르면 풀린다(코스 먼저로 고른 칸은 남는다)
-    /// · 칸을 먼저 누르면 "코스 먼저" — 화면은 그 칸으로 던질 수 있는 카드만 밝힌다
+    /// · 칸을 먼저 누르면 "코스 먼저" — 화면은 그 칸으로 던질 수 있는 카드만 밝힌다.
+    ///   그 칸으로 던질 수 있는 카드가 한 장뿐이면 그 카드를 바로 고른다 (1차 빌드 요청 2026-11-16 — 칸의 숫자와 같은 셈, 전력투구 제외)
     /// · 고른 카드가 못 가는 칸을 누르면 카드 선택이 풀리고 칸 우선이 된다
     /// · 전력투구 직구는 칸을 고르지 않는다 (엔진이 착지를 정한다)
     /// Unity를 쓰지 않는 순수 클래스 — EditMode 테스트로 확인한다
@@ -59,11 +60,27 @@ namespace BBGame.Presentation.Match
             if (Card >= 0)
             {
                 if (!hand.IsPowerPitch(Card) && hand.CanTarget(Card, zone)) { Zone = zone; ZoneFirst = true; }
-                else { Card = -1; Zone = zone; ZoneFirst = true; }   // 카드 밖 칸 → 코스 먼저
+                else { Card = -1; Zone = zone; ZoneFirst = true; AutoPickSingle(zone, hand); }   // 카드 밖 칸 → 코스 먼저
                 return;
             }
             if (Zone.HasValue && Zone.Value == zone) { Zone = null; ZoneFirst = false; }
-            else { Zone = zone; ZoneFirst = true; }
+            else { Zone = zone; ZoneFirst = true; AutoPickSingle(zone, hand); }
+        }
+
+        /// <summary>
+        /// 코스 먼저 — 이 칸으로 던질 수 있는 카드가 한 장뿐이면 그 카드를 고른다 (칸은 그대로 둔다).
+        /// 존 칸에 보이는 숫자와 같은 셈이다: 칸을 고르는 카드만 센다(전력투구 직구는 칸을 고르지 않아 뺀다)
+        /// </summary>
+        private void AutoPickSingle(ZoneId zone, IHandRules hand)
+        {
+            int only = -1;
+            for (int i = 0; i < hand.HandCount; i++)
+            {
+                if (hand.IsPowerPitch(i) || !hand.CanTarget(i, zone)) continue;
+                if (only >= 0) return;   // 두 장 이상 — 플레이어가 고른다
+                only = i;
+            }
+            if (only >= 0) Card = only;
         }
 
         /// <summary>던지기 명령 — 전력투구 직구는 칸 없이</summary>

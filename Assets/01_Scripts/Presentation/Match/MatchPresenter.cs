@@ -252,7 +252,7 @@ namespace BBGame.Presentation.Match
             }
         }
 
-        /// <summary>경기 결과 창 → [처음부터] (M2 임시 — 경기 후 화면은 M8)</summary>
+        /// <summary>경기 결과 창 → [타이틀로] (1차 빌드 — 경기 후 화면은 M8)</summary>
         private async UniTask ShowResultAsync()
         {
             RefreshAll();
@@ -263,7 +263,7 @@ namespace BBGame.Presentation.Match
                 .Set("home", Loc.Get(_cat.SchoolName(HomeSchoolId))).Set("homeRuns", S.ScoreUs)
                 .Format(Ui.endBody);
             string relief = S.ExitReason != ExitReason.None ? ReliefLine() : string.Empty;
-            await _v.result.ShowAsync(Loc.Get(_cat.Result(result)), color, score, PitcherLineText(), relief, Loc.Get(Ui.restart), _ct);
+            await _v.result.ShowAsync(Loc.Get(_cat.Result(result)), color, score, PitcherLineText(), relief, Loc.Get(Ui.toTitle), _ct);
             _restart?.Invoke();
         }
 
